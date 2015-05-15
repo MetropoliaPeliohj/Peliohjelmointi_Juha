@@ -6,6 +6,7 @@
 #include "ae.h"
 #include "world.h"
 #include "duck.h"
+#include "collision.h"
 
 GLuint Duck::m_dl		= 0;
 Duck*  Duck::m_instance = 0;
@@ -133,7 +134,9 @@ void Duck::right()
 */
 void Duck::jump()
 {
-	m_body->ApplyForceToCenter(b2Vec2(0, DUCK_FORCE_JUMP));
+	if (Contact_Listener::getContactState() == 1){
+		m_body->ApplyForceToCenter(b2Vec2(0, DUCK_FORCE_JUMP));
+	}
 }
 
 

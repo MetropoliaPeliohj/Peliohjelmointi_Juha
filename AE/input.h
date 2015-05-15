@@ -25,9 +25,10 @@ public:
 		keyArray = SDL_GetKeyboardState(NULL);
 	}
 
-	bool isKeyDown(SDL_Keycode key)
+	bool isKeyDown(SDL_Keycode keyCode)
 	{
-		if (keyArray[key] == 1)
+		SDL_Scancode code = SDL_GetScancodeFromKey(keyCode);
+		if (keyArray[code] == 1)
 		{
 			return true;
 		}

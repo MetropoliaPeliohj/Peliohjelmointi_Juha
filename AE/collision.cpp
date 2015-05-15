@@ -7,6 +7,7 @@
 #include "collision.h"
 
 Contact_Listener* Contact_Listener::m_instance = 0;
+boolean Contact_Listener::contactState;
 
 
 /*
@@ -14,6 +15,7 @@ Contact_Listener* Contact_Listener::m_instance = 0;
 */
 void Contact_Listener::BeginContact(b2Contact *contact)
 {
+	contactState = true;
 	Log::log(LOG_INFO, "Begin contact");
 	b2Body *body_a = contact->GetFixtureA()->GetBody();
 	b2Body *body_b = contact->GetFixtureB()->GetBody();
@@ -47,5 +49,6 @@ void Contact_Listener::BeginContact(b2Contact *contact)
 */
 void Contact_Listener::EndContact(b2Contact *contact)
 {
+	contactState = false;
 	Log::log(LOG_INFO, "End contact");
 }

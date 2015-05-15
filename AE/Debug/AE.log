@@ -1,64 +1,13 @@
-﻿Build started 15.5.2015 9:25:53.
+﻿Build started 15.5.2015 19:29:06.
      1>Project "F:\GeimiFinal\peliohjelmointi\AE\AE.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         F:\Visual studio\VC\bin\CL.exe /c /IF:\GeimiFinal\peliohjelmointi\/3rdparty/WindowsSDK/Include /I"F:\GeimiFinal\peliohjelmointi\/3rdparty/glew-1.11.0/include" /I"F:\GeimiFinal\peliohjelmointi\/3rdparty/SDL2-2.0.3/include" /I"F:\GeimiFinal\peliohjelmointi\/3rdparty/SDL2_image-2.0.0/include" /I"F:\GeimiFinal\peliohjelmointi\/3rdparty/SDL2_mixer-2.0.0/include" /IF:\GeimiFinal\peliohjelmointi\/3rdparty/Box2D_v2.2.0 /IF:\GeimiFinal\peliohjelmointi\/3rdparty/tinyxml2 /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\3rdparty\tinyxml2\tinyxml2.cpp ae.cpp ai_list.cpp bullet.cpp collision.cpp deletion_list.cpp duck.cpp hunter.cpp hunter_ai.cpp level.cpp log.cpp render_list.cpp world.cpp
-         world.cpp
-         render_list.cpp
-         log.cpp
-         level.cpp
-     1>f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
-                 f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
-     1>f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
-                 f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-     1>f:\geimifinal\peliohjelmointi\ae\level.cpp(199): warning C4244: '=' : conversion from 'GLint' to 'GLfloat', possible loss of data
-     1>f:\geimifinal\peliohjelmointi\ae\level.cpp(200): warning C4244: '=' : conversion from 'GLint' to 'GLfloat', possible loss of data
-     1>f:\geimifinal\peliohjelmointi\ae\level.cpp(216): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>f:\geimifinal\peliohjelmointi\ae\level.cpp(217): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-         hunter_ai.cpp
-     1>f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
-                 f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
-     1>f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
-                 f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-     1>f:\geimifinal\peliohjelmointi\ae\hunter_ai.cpp(100): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>f:\geimifinal\peliohjelmointi\ae\hunter_ai.cpp(100): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-         hunter.cpp
-     1>f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
-                 f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
-     1>f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
-                 f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-     1>f:\geimifinal\peliohjelmointi\ae\hunter.cpp(42): warning C4305: 'argument' : truncation from 'double' to 'float32'
-     1>f:\geimifinal\peliohjelmointi\ae\hunter.cpp(140): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-         duck.cpp
-     1>f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
-                 f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
-     1>f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
-                 f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-     1>f:\geimifinal\peliohjelmointi\ae\duck.cpp(79): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>f:\geimifinal\peliohjelmointi\ae\duck.cpp(95): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>f:\geimifinal\peliohjelmointi\ae\duck.cpp(158): warning C4305: '=' : truncation from 'double' to 'float'
-         deletion_list.cpp
-         collision.cpp
-     1>f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
-                 f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
-     1>f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
-                 f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-         bullet.cpp
-     1>f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
-                 f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
-     1>f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
-                 f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-     1>f:\geimifinal\peliohjelmointi\ae\bullet.cpp(44): warning C4244: 'argument' : conversion from 'double' to 'float32', possible loss of data
-     1>f:\geimifinal\peliohjelmointi\ae\bullet.cpp(78): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-     1>f:\geimifinal\peliohjelmointi\ae\bullet.cpp(93): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-         ai_list.cpp
+         F:\Visual studio\VC\bin\CL.exe /c /IF:\GeimiFinal\peliohjelmointi\/3rdparty/WindowsSDK/Include /I"F:\GeimiFinal\peliohjelmointi\/3rdparty/glew-1.11.0/include" /I"F:\GeimiFinal\peliohjelmointi\/3rdparty/SDL2-2.0.3/include" /I"F:\GeimiFinal\peliohjelmointi\/3rdparty/SDL2_image-2.0.0/include" /I"F:\GeimiFinal\peliohjelmointi\/3rdparty/SDL2_mixer-2.0.0/include" /IF:\GeimiFinal\peliohjelmointi\/3rdparty/Box2D_v2.2.0 /IF:\GeimiFinal\peliohjelmointi\/3rdparty/tinyxml2 /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ae.cpp
          ae.cpp
      1>f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
                  f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
      1>f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
                  f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-     1>f:\geimifinal\peliohjelmointi\ae\ae.cpp(134): warning C4244: 'argument' : conversion from 'double' to 'float32', possible loss of data
-         tinyxml2.cpp
-         Generating Code...
+     1>f:\geimifinal\peliohjelmointi\ae\ae.cpp(128): warning C4244: 'argument' : conversion from 'double' to 'float32', possible loss of data
        Link:
          F:\Visual studio\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\GeimiFinal\peliohjelmointi\Debug\AE.exe" /INCREMENTAL /NOLOGO /LIBPATH:F:\GeimiFinal\peliohjelmointi\/3rdparty/WindowsSDK/Lib /LIBPATH:"F:\GeimiFinal\peliohjelmointi\/3rdparty/glew-1.11.0/lib/Release/Win32" /LIBPATH:"F:\GeimiFinal\peliohjelmointi\/3rdparty/SDL2-2.0.3/lib/x86" /LIBPATH:"F:\GeimiFinal\peliohjelmointi\/3rdparty/SDL2_image-2.0.0/lib/x86" /LIBPATH:"F:\GeimiFinal\peliohjelmointi\/3rdparty/SDL2_mixer-2.0.0/lib/x86" /LIBPATH:F:\GeimiFinal\peliohjelmointi\/3rdparty/Box2D_v2.2.0/lib OpenGL32.lib GlU32.lib glew32.lib SDL2.lib SDL2main.lib SDL2_image.lib SDL2_mixer.lib Box2D.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\GeimiFinal\peliohjelmointi\Debug\AE.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\GeimiFinal\peliohjelmointi\Debug\AE.lib" /MACHINE:X86 Debug\tinyxml2.obj
          Debug\ae.obj
@@ -73,54 +22,9 @@
          Debug\log.obj
          Debug\render_list.obj
          Debug\world.obj
-     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>Box2D.lib(b2DistanceJoint.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2DistanceJoint.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2FrictionJoint.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2FrictionJoint.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2GearJoint.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2GearJoint.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Joint.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2Joint.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2MouseJoint.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2MouseJoint.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2PrismaticJoint.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2PrismaticJoint.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2PulleyJoint.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2PulleyJoint.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2RevoluteJoint.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2RevoluteJoint.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2RopeJoint.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2RopeJoint.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2WeldJoint.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2WeldJoint.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2WheelJoint.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2WheelJoint.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2CircleContact.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2CircleContact.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Contact.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2Contact.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2ContactSolver.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2ContactSolver.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2PolygonAndCircleContact.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2PolygonAndCircleContact.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2EdgeAndCircleContact.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2EdgeAndCircleContact.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2EdgeAndPolygonContact.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2EdgeAndPolygonContact.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2ChainAndCircleContact.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2ChainAndCircleContact.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2ChainAndPolygonContact.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2ChainAndPolygonContact.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2PolygonContact.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2PolygonContact.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Body.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2Body.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2ContactManager.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2ContactManager.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Fixture.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2Fixture.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Island.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2Island.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2World.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2World.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2WorldCallbacks.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2WorldCallbacks.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2BlockAllocator.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2BlockAllocator.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Draw.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2Draw.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Math.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2Math.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Settings.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2Settings.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2StackAllocator.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2StackAllocator.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Timer.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2Timer.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2CircleShape.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2CircleShape.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2EdgeShape.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2EdgeShape.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2ChainShape.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2ChainShape.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2PolygonShape.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2PolygonShape.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2BroadPhase.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2BroadPhase.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2CollideCircle.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2CollideCircle.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2CollideEdge.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2CollideEdge.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2CollidePolygon.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2CollidePolygon.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Collision.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2Collision.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2Distance.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2Distance.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2DynamicTree.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2DynamicTree.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
-     1>Box2D.lib(b2TimeOfImpact.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Box2D.lib(b2TimeOfImpact.obj)' or at 'F:\GeimiFinal\peliohjelmointi\Debug\vc120.pdb'; linking object as if no debug info
          AE.vcxproj -> F:\GeimiFinal\peliohjelmointi\Debug\AE.exe
      1>Done Building Project "F:\GeimiFinal\peliohjelmointi\AE\AE.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:12.38
+Time Elapsed 00:00:02.63

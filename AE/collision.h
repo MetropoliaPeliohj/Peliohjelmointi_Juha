@@ -19,14 +19,18 @@ public:
 		return Contact_Listener::m_instance;
 	}
 
+	static boolean getContactState()	{ return contactState; }
+
 	// Contact callbacks.
 	void BeginContact(b2Contact*);
 	void EndContact(b2Contact*);
 
 private:
 
-	Contact_Listener()				{}
-	~Contact_Listener()				{}
+	Contact_Listener()					{}
+	~Contact_Listener()					{}
+
+	static boolean contactState;
 
 	// (Singleton) instance.
 	static Contact_Listener* m_instance;

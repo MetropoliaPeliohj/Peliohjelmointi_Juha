@@ -21,6 +21,7 @@
 #include "render_list.h"
 #include "world.h"
 #include "input.h"
+#include "deletion_list.h"
 
 static SDL_Window*		window		= 0;
 static SDL_GLContext	gl_context	= 0;
@@ -125,6 +126,7 @@ int main(int argc, char* argv[])
 		delta_time = now - last_time;
 		last_time = now;
 		World::get()->Step((float32)delta_time / 1000.0, 8, 3);
+		Deletion_List::get()->delete_and_clear();
 	}
 
 	Log::log(LOG_INFO, "Exiting.");
