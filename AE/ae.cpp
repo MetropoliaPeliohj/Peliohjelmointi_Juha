@@ -20,6 +20,7 @@
 #include "log.h"
 #include "render_list.h"
 #include "world.h"
+#include "input.h"
 
 static SDL_Window*		window		= 0;
 static SDL_GLContext	gl_context	= 0;
@@ -88,32 +89,24 @@ int main(int argc, char* argv[])
 	unsigned last_time = SDL_GetTicks();
 	unsigned delta_time;
 	unsigned now;
+
+	input in;
 	while (running && Duck::get_duck()->is_alive())
 	{
-		SDL_Event event;
-		if (SDL_PollEvent(&event))
-			switch (event.type)
-		{
-			case SDL_QUIT:
-				running = 0;
-				break;
-			case SDL_KEYDOWN:
-				switch (event.key.keysym.sym)
-				{
-				case SDLK_LEFT:
-					duck.left();
-					break;
-				case SDLK_RIGHT:
-					duck.right();
-					break;
-				case SDLK_SPACE:
-					duck.jump();
-					break;
-				default:
-					break;
-				}
-			default:
-				break;
+		if (SDL_PollEvent(&in.getEvent())){
+
+			in.update();
+
+			if (in.isKeyDown(SDLK_LEFT)){
+				duck.left();
+			}
+			if (in.isKeyDown(SDLK_RIGHT)){
+				duck.right();
+			}
+			if (in.isKeyDown(SDLK_SPACE)){
+				duck.jump();
+			}
+
 		}
 
 		// Run AI.
