@@ -18,6 +18,8 @@
 #define PHYS_SCALE			100
 #define TIMESTEP			(1.0 / 60.0)
 #define GRAVITY				-10.0f
+#define DUCK_WIDTH			128
+#define DUCK_HEIGHT			128
 #define DUCK_ORIG_X			1000
 #define DUCK_ORIG_Y			1000
 #define DUCK_RADIUS			20

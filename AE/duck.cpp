@@ -3,12 +3,14 @@
 #include <gl/glew.h>
 #include <gl/GL.h>
 #include <SDL.h>
+#include <SDL_image.h>
 #include "ae.h"
 #include "world.h"
 #include "duck.h"
 #include "collision.h"
 
 GLuint Duck::m_dl		= 0;
+GLuint Duck::m_tex = 0;
 Duck*  Duck::m_instance = 0;
 
 
@@ -26,6 +28,14 @@ Duck* Duck::get_duck()
 */
 Duck::Duck(int x, int y) : _x(x), _y(y)
 {
+
+	/*
+		b2CircleShape circleShape;
+	circleShape.m_radius = DUCK_RADIUS / (float)PHYS_SCALE;
+	b2FixtureDef fixtureDef;
+	fixtureDef.shape = &circleShape;
+	
+	*/
 	// Dynamic body for physics.
 	b2BodyDef bodyDef;
 	bodyDef.type = b2_dynamicBody;
@@ -33,10 +43,12 @@ Duck::Duck(int x, int y) : _x(x), _y(y)
 		x / (float)PHYS_SCALE,
 		y / (float)PHYS_SCALE);
 	m_body = World::get()->CreateBody(&bodyDef);
-	b2CircleShape circleShape;
-	circleShape.m_radius = DUCK_RADIUS / (float)PHYS_SCALE;
+	b2PolygonShape box;
+	box.SetAsBox(
+		(HUNTER_WIDTH / 2.0) / (float)PHYS_SCALE,
+		(HUNTER_HEIGHT / 2.0) / (float)PHYS_SCALE);
 	b2FixtureDef fixtureDef;
-	fixtureDef.shape = &circleShape;
+	fixtureDef.shape = &box;
 	fixtureDef.density = DUCK_DENSITY;
 	fixtureDef.friction = DUCK_FRICTION;
 	m_body->CreateFixture(&fixtureDef);
@@ -71,7 +83,95 @@ int	Duck::init()
 	//
 	Duck::m_dl = glGenLists(1);
 	glNewList(Duck::m_dl, GL_COMPILE);
-		glBegin(GL_LINE_LOOP);
+	glBegin(GL_QUADS);
+	glTexCoord2f(1.0, 0.0); glVertex3f(-DUCK_WIDTH / 2.0, DUCK_HEIGHT / 2.0, 0.0);
+	glTexCoord2f(0.0, 0.0); glVertex3f(DUCK_WIDTH / 2.0, DUCK_HEIGHT / 2.0, 0.0);
+	glTexCoord2f(0.0, 1.0); glVertex3f(DUCK_WIDTH / 2.0, -DUCK_HEIGHT / 2.0, 0.0);
+	glTexCoord2f(1.0, 1.0); glVertex3f(-DUCK_WIDTH/ 2.0, -DUCK_HEIGHT / 2.0, 0.0);
+	glEnd();
+	glEndList();
+
+	//
+	// Textures.
+	//
+	glEnable(GL_TEXTURE_2D);
+	glGenTextures(1, &m_tex);
+	glBindTexture(GL_TEXTURE_2D, m_tex);
+	SDL_Surface *teximage = IMG_Load("duck.png");
+	if (!teximage)
+		return 0;
+	gluBuild2DMipmaps(
+		GL_TEXTURE_2D,		// texture to specify
+		GL_RGBA,			// internal texture storage format
+		teximage->w,		// texture width
+		teximage->h,		// texture height
+		GL_RGBA,			// pixel format (possibly RGBA)
+		GL_UNSIGNED_BYTE,	// color component format
+		teximage->pixels	// pointer to texture image
+		);
+	SDL_FreeSurface(teximage);
+
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glDisable(GL_TEXTURE_2D);
+	return (glGetError() == GL_NO_ERROR);
+
+
+
+	/*
+
+																							// LEVEL.CPP TEKSTUROINTI:
+																							glEnable(GL_TEXTURE_2D);
+																							glGenTextures(1, &m_tex);
+																							glBindTexture(GL_TEXTURE_2D, m_tex);
+																							SDL_Surface *teximage = IMG_Load(m_image_file_name.c_str());
+																							if (!teximage)
+																								return 0;
+																							gluBuild2DMipmaps(
+																								GL_TEXTURE_2D,		// texture to specify
+																								GL_RGBA,			// internal texture storage format
+																								teximage->w,		// texture width
+																								teximage->h,		// texture height
+																								GL_RGBA,			// pixel format (possibly RGBA)
+																								GL_UNSIGNED_BYTE,	// color component format
+																								teximage->pixels	// pointer to texture image
+																								);
+																							SDL_FreeSurface(teximage);
+																							glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+																							glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+																							glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+																							glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+																							glDisable(GL_TEXTURE_2D);
+																							return (glGetError() == GL_NO_ERROR);
+
+				// HUNTER.CPP TEKSTUROINTI
+				glEnable(GL_TEXTURE_2D);
+				glGenTextures(1, &m_tex);
+				glBindTexture(GL_TEXTURE_2D, m_tex);
+				SDL_Surface *teximage = IMG_Load("chrome.png");
+				if (!teximage)
+				return 0;
+				gluBuild2DMipmaps(
+				GL_TEXTURE_2D,		// texture to specify
+				GL_RGBA,			// internal texture storage format
+				teximage->w,		// texture width
+				teximage->h,		// texture height
+				GL_RGBA,			// pixel format (possibly RGBA)
+				GL_UNSIGNED_BYTE,	// color component format
+				teximage->pixels	// pointer to texture image
+				);
+				SDL_FreeSurface(teximage);
+				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+				glDisable(GL_TEXTURE_2D);
+				return (glGetError() == GL_NO_ERROR);
+						
+						
+						glBegin(GL_LINE_LOOP);
 			for (int i=0; i < 360; i++)
 			{
 				glVertex3f(
@@ -80,8 +180,22 @@ int	Duck::init()
 					0.0);
 			}
 			glVertex3f(0.0, 0.0, 0.0);
-		glEnd();
-	glEndList();
+
+
+
+
+			glBegin(GL_LINE_LOOP);
+			for (int i=0; i < 360; i++)
+			{
+			glVertex3f(
+			cos(DEG2RAD(i)) * DUCK_RADIUS,
+			sin(DEG2RAD(i)) * DUCK_RADIUS,
+			0.0);
+			}
+			glVertex3f(0.0, 0.0, 0.0);
+
+	*/
+
 	return (glGetError() == GL_NO_ERROR);
 }
 
@@ -91,13 +205,14 @@ int	Duck::init()
 */
 void Duck::render()
 {
+	glEnable(GL_TEXTURE_2D);
 	glMatrixMode(GL_MODELVIEW);
 	b2Vec2 pos = m_body->GetPosition();
 	float angle = RAD2DEG(m_body->GetAngle());
 	glTranslatef(pos.x * PHYS_SCALE, pos.y * PHYS_SCALE, 1.0);
-	glRotatef(angle, 0.0, 0.0, 1.0);
-	glColor3f(1.0, 1.0, 1.0);
+	glBindTexture(GL_TEXTURE_2D, m_tex);
 	glCallList(m_dl);
+	glDisable(GL_TEXTURE_2D);
 }
 
 
@@ -116,7 +231,10 @@ void Duck::fini()
 */
 void Duck::left()
 {
+	b2Vec2 pos = m_body->GetPosition();
+	
 	m_body->ApplyForceToCenter(b2Vec2(DUCK_FORCE_LEFT, 0));
+	
 }
 
 
