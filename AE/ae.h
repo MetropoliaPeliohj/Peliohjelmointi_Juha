@@ -17,15 +17,15 @@
 #define DUCK_RADIUS			20
 #define PHYS_SCALE			100
 #define TIMESTEP			(1.0 / 60.0)
-#define GRAVITY				-10.0f
+#define GRAVITY				-30.0f
 #define DUCK_WIDTH			128
 #define DUCK_HEIGHT			128
 #define DUCK_ORIG_X			1000
 #define DUCK_ORIG_Y			1000
 #define DUCK_RADIUS			20
-#define DUCK_FORCE_LEFT		-5
-#define DUCK_FORCE_RIGHT	5
-#define DUCK_FORCE_JUMP		40
+#define DUCK_FORCE_LEFT		-100
+#define DUCK_FORCE_RIGHT	100
+#define DUCK_FORCE_JUMP		800
 #define DUCK_DENSITY		0.9f
 #define DUCK_FRICTION		0.8f
 #define HUNTER_WIDTH		128
