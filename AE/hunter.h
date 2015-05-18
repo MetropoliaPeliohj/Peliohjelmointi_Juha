@@ -35,7 +35,10 @@ public:
 	int get_min_x() const { return m_min_x; }
 	int get_max_x() const { return m_max_x; }
 
+	// Sets hunter's direction
 	static void setDirection(bool dir);
+
+	// Returns right texture for displaying
 	GLuint getTextureToBind();
 
 private:
@@ -44,6 +47,7 @@ private:
 	static GLuint m_dl;
 	static GLuint m_tex[2];
 
+	// Direction of the hunter
 	static bool direction;
 
 	// Decision tree for hunter AI.

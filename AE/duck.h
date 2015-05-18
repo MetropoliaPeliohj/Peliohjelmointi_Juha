@@ -37,8 +37,10 @@ public:
 	// Camera will follow the duck.
 	void set_camera_to_duck() const;
 
-
+	// Returns right texture for displaying
 	GLuint getTextureToBind();
+
+	// Sets duck's jumping state
 	void setJumpingState();
 
 private:

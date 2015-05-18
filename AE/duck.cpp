@@ -29,7 +29,6 @@ Duck* Duck::get_duck()
 */
 Duck::Duck(int x, int y) : _x(x), _y(y)
 {
-
 	// Dynamic body for physics.
 	b2BodyDef bodyDef;
 	bodyDef.type = b2_dynamicBody;
@@ -259,6 +258,25 @@ void Duck::set_camera_to_duck() const
 	glScalef(scaling, scaling, 1);
 }
 
+/**
+Sets duck's jump state depending
+on contacts duck has.
+*/
+void Duck::setJumpingState()
+{
+	if (m_body->GetContactList() != 0){
+		jumping = 0;
+	}
+	else{
+		jumping = 1;
+	}
+}
+
+/**
+Returns correct texture depending
+on value of "jumping" and "direction"
+variables.
+*/
 GLuint Duck::getTextureToBind()
 {
 	if (jumping == 0){
@@ -278,15 +296,5 @@ GLuint Duck::getTextureToBind()
 		}
 	}
 	return 0;
-}
-
-void Duck::setJumpingState()
-{
-	if (m_body->GetContactList() != 0){
-		jumping = 0;
-	}
-	else{
-		jumping = 1;
-	}
 }
 
