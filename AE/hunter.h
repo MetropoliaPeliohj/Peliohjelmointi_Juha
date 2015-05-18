@@ -8,12 +8,13 @@
 #include "hunter_ai.h"
 #include "physable.h"
 #include "renderable.h"
+#include "Shootable.h"
 
 
 /**
 	Shooting villain.
 */
-class Hunter : public Renderable, public Physable, public AI_Character
+class Hunter : public Renderable, public Physable, public AI_Character, public Shootable
 {
 public:
 

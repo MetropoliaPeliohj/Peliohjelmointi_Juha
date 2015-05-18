@@ -94,6 +94,7 @@
     <ClCompile Include="level.cpp" />
     <ClCompile Include="log.cpp" />
     <ClCompile Include="render_list.cpp" />
+    <ClCompile Include="Shootable.cpp" />
     <ClCompile Include="world.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +114,7 @@
     <ClInclude Include="physable.h" />
     <ClInclude Include="renderable.h" />
     <ClInclude Include="render_list.h" />
+    <ClInclude Include="Shootable.h" />
     <ClInclude Include="vertex.h" />
     <ClInclude Include="world.h" />
   </ItemGroup>
