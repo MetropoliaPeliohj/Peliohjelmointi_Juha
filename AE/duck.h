@@ -43,10 +43,12 @@ private:
 	// we get physics in).
 	int _x;
 	int _y;
+	static bool direction;
+	static bool jumping;
 
 	// For rendering. Common for all Duck instances.
 	static GLuint m_dl;
-	static GLuint m_tex;
+	static GLuint m_tex[4];
 
 	// For (singleton) instance access.
 	static Duck* m_instance;
