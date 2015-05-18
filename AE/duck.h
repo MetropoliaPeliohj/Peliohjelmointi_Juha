@@ -3,15 +3,15 @@
 
 #include <windows.h>
 #include <gl/GL.h>
-#include "physable.h"
-#include "renderable.h"
-#include "Shootable.h"
+#include "IPhysable.h"
+#include "IRenderable.h"
+#include "IShootable.h"
 
 
 /**
 	Player controlled duck.
 */
-class Duck : public Renderable, public Physable, public Shootable
+class Duck : public IRenderable, public IPhysable, public IShootable
 {
 public:
 

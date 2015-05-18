@@ -4,17 +4,17 @@
 #include <windows.h>
 #include <gl/GL.h>
 #include <Box2D/Box2D.h>
-#include "ai_character.h"
+#include "IAI_Character.h"
 #include "hunter_ai.h"
-#include "physable.h"
-#include "renderable.h"
-#include "Shootable.h"
+#include "IPhysable.h"
+#include "IRenderable.h"
+#include "IShootable.h"
 
 
 /**
 	Shooting villain.
 */
-class Hunter : public Renderable, public Physable, public AI_Character, public Shootable
+class Hunter : public IRenderable, public IPhysable, public IAI_Character, public IShootable
 {
 public:
 

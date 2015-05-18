@@ -127,7 +127,6 @@ int main(int argc, char* argv[])
 			}
 
 			duck.handle_inputs();
-
 		}
 
 		// Run AI.

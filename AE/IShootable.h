@@ -1,15 +1,15 @@
-#ifndef _SHOOTABLE_H_
-#define _SHOOTABLE_H_
+#ifndef _ISHOOTABLE_H_
+#define _ISHOOTABLE_H_
 
 
 /**
 	Virtual class for all objects that can shoot.
 */
-class Shootable
+class IShootable
 {
 public:
-	Shootable()			{}
-	virtual ~Shootable() {}
+	IShootable()			{}
+	virtual ~IShootable() {}
 
 	void try_shoot(int, int, float, float, unsigned int);
 
@@ -17,4 +17,4 @@ private:
 	long lastTimeShotTimestamp;
 };
 
-#endif // _SHOOTABLE_H_
+#endif // _ISHOOTABLE_H_

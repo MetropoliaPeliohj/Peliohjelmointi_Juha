@@ -18,6 +18,7 @@
 #define PHYS_SCALE			100
 #define TIMESTEP			(1.0 / 60.0)
 #define GRAVITY				-30.0f
+
 #define DUCK_WIDTH			128
 #define DUCK_HEIGHT			128
 #define DUCK_ORIG_X			1000
@@ -30,6 +31,7 @@
 #define DUCK_FRICTION		0.8f
 #define DUCK_SHOOTDELAYMS	100
 #define DUCK_BULLET_FORCE	10
+
 #define HUNTER_WIDTH		128
 #define	HUNTER_HEIGHT		128
 #define	HUNTER_DENSITY		1.0f
@@ -40,6 +42,7 @@
 #define HUNTER_SPEED		1
 #define HUNTER_SHOOTDELAYMS	2000
 #define HUNTER_BULLET_FORCE	5
+
 #define BULLET_RADIUS		5
 #define BULLET_DENSITY		1.0f
 #define BULLET_FRICTION		0.8f

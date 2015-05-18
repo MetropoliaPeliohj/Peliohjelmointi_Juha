@@ -1,7 +1,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <SDL.h>
-#include "Shootable.h"
+#include "IShootable.h"
 #include "Bullet.h"
 #include "ae.h"
 #include "render_list.h"
@@ -10,7 +10,7 @@
 /**
 	Function checks if shot delay passed and if yes than shoots.
 */
-void Shootable::try_shoot(int x, int y, float angle, float force, unsigned int max_shot_delay)
+void IShootable::try_shoot(int x, int y, float angle, float force, unsigned int max_shot_delay)
 {
 	unsigned int delta = SDL_GetTicks() - lastTimeShotTimestamp;
 

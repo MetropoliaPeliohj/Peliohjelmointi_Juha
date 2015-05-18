@@ -2,14 +2,14 @@
 #define _RENDER_LIST_H_
 
 #include <list>
-#include "renderable.h"
+#include "IRenderable.h"
 
 
 /**
 	For keeping track of and for rendering of
 	all the renderable items. Singleton.
 */
-class Render_List : public std::list<Renderable*>
+class Render_List : public std::list<IRenderable*>
 {
 public:
 

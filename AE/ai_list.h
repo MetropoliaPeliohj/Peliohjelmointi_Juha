@@ -2,14 +2,14 @@
 #define _AI_LIST_H_
 
 #include <list>
-#include "ai_character.h"
+#include "IAI_Character.h"
 
 
 /**
 	For keeping track of and running AI of
 	all the AI characters. Singleton.
 */
-class AI_List : public std::list<AI_Character*>
+class AI_List : public std::list<IAI_Character*>
 {
 public:
 

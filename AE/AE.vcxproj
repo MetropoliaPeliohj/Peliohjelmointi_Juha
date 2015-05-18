@@ -99,7 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ae.h" />
-    <ClInclude Include="ai_character.h" />
+    <ClInclude Include="IAI_Character.h" />
     <ClInclude Include="ai_list.h" />
     <ClInclude Include="bullet.h" />
     <ClInclude Include="collision.h" />
@@ -111,10 +111,10 @@
     <ClInclude Include="hunter_ai.h" />
     <ClInclude Include="level.h" />
     <ClInclude Include="log.h" />
-    <ClInclude Include="physable.h" />
-    <ClInclude Include="renderable.h" />
+    <ClInclude Include="IPhysable.h" />
+    <ClInclude Include="IRenderable.h" />
     <ClInclude Include="render_list.h" />
-    <ClInclude Include="Shootable.h" />
+    <ClInclude Include="IShootable.h" />
     <ClInclude Include="vertex.h" />
     <ClInclude Include="world.h" />
   </ItemGroup>
