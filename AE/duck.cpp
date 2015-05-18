@@ -257,11 +257,34 @@ void Duck::jump()
 	}
 }
 
+/**
+	Try shooting
+*/
+void Duck::shoot()
+{
+	float duck_x = this->get_body()->GetPosition().x;
+	float duck_y = this->get_body()->GetPosition().y;
+
+	float duck_x_pScale = duck_x * PHYS_SCALE;
+	float duck_y_pScale = duck_y * PHYS_SCALE;
+	//float angle = RAD2DEG(atan2(duck_y, duck_x));
+	float angle = 25.0f;
+
+	this->try_shoot(
+		duck_x_pScale + 100,
+		duck_y_pScale + 50,
+		angle,
+		DUCK_BULLET_FORCE,
+		DUCK_SHOOTDELAYMS
+		);
+}
+
 void Duck::handle_inputs()
 {
 	if (this->goLeft) left();
 	if (this->goRight) right();
 	if (this->goJump) jump();
+	if (this->doShoot) shoot();
 }
 
 

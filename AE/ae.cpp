@@ -108,6 +108,9 @@ int main(int argc, char* argv[])
 			if (in.isKeyDown(SDLK_SPACE)){
 				duck.goJump = true;
 			}
+			if (in.isKeyDown(SDLK_LCTRL)){
+				duck.doShoot = true;
+			}
 
 			// If button UP
 			if (in.isKeyUp(SDLK_LEFT)){
@@ -118,6 +121,9 @@ int main(int argc, char* argv[])
 			}
 			if (in.isKeyUp(SDLK_SPACE)){
 				duck.goJump = false;
+			}
+			if (in.isKeyUp(SDLK_LCTRL)){
+				duck.doShoot = false;
 			}
 
 			duck.handle_inputs();

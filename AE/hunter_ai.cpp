@@ -92,11 +92,11 @@ void Do_Shoot::evaluate()
 	// Create a new bullet aimed at the duck.
 	// Add to the render list.
 	//
-	m_hunter->shoot(
+	m_hunter->try_shoot(
 		hunter_x * PHYS_SCALE,
 		hunter_y * PHYS_SCALE,
 		RAD2DEG(atan2(duck_y - hunter_y, duck_x - hunter_x)),
-		BULLET_FORCE,
+		HUNTER_BULLET_FORCE,
 		HUNTER_SHOOTDELAYMS
 	);
 

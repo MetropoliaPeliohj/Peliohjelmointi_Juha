@@ -11,7 +11,7 @@ public:
 	Shootable()			{}
 	virtual ~Shootable() {}
 
-	void shoot(int, int, float, float, unsigned int);
+	void try_shoot(int, int, float, float, unsigned int);
 
 private:
 	long lastTimeShotTimestamp;

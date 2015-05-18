@@ -10,7 +10,7 @@
 /**
 	Function checks if shot delay passed and if yes than shoots.
 */
-void Shootable::shoot(int x, int y, float angle, float force, unsigned int max_shot_delay)
+void Shootable::try_shoot(int x, int y, float angle, float force, unsigned int max_shot_delay)
 {
 	unsigned int delta = SDL_GetTicks() - lastTimeShotTimestamp;
 
