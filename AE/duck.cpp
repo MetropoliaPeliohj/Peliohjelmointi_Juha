@@ -30,13 +30,6 @@ Duck* Duck::get_duck()
 Duck::Duck(int x, int y) : _x(x), _y(y)
 {
 
-	/*
-		b2CircleShape circleShape;
-	circleShape.m_radius = DUCK_RADIUS / (float)PHYS_SCALE;
-	b2FixtureDef fixtureDef;
-	fixtureDef.shape = &circleShape;
-	
-	*/
 	// Dynamic body for physics.
 	b2BodyDef bodyDef;
 	bodyDef.type = b2_dynamicBody;
@@ -163,86 +156,6 @@ int	Duck::init()
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glDisable(GL_TEXTURE_2D);
 	return (glGetError() == GL_NO_ERROR);
-
-
-
-	/*
-
-																							// LEVEL.CPP TEKSTUROINTI:
-																							glEnable(GL_TEXTURE_2D);
-																							glGenTextures(1, &m_tex);
-																							glBindTexture(GL_TEXTURE_2D, m_tex);
-																							SDL_Surface *teximage = IMG_Load(m_image_file_name.c_str());
-																							if (!teximage)
-																								return 0;
-																							gluBuild2DMipmaps(
-																								GL_TEXTURE_2D,		// texture to specify
-																								GL_RGBA,			// internal texture storage format
-																								teximage->w,		// texture width
-																								teximage->h,		// texture height
-																								GL_RGBA,			// pixel format (possibly RGBA)
-																								GL_UNSIGNED_BYTE,	// color component format
-																								teximage->pixels	// pointer to texture image
-																								);
-																							SDL_FreeSurface(teximage);
-																							glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-																							glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-																							glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-																							glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-																							glDisable(GL_TEXTURE_2D);
-																							return (glGetError() == GL_NO_ERROR);
-
-				// HUNTER.CPP TEKSTUROINTI
-				glEnable(GL_TEXTURE_2D);
-				glGenTextures(1, &m_tex);
-				glBindTexture(GL_TEXTURE_2D, m_tex);
-				SDL_Surface *teximage = IMG_Load("chrome.png");
-				if (!teximage)
-				return 0;
-				gluBuild2DMipmaps(
-				GL_TEXTURE_2D,		// texture to specify
-				GL_RGBA,			// internal texture storage format
-				teximage->w,		// texture width
-				teximage->h,		// texture height
-				GL_RGBA,			// pixel format (possibly RGBA)
-				GL_UNSIGNED_BYTE,	// color component format
-				teximage->pixels	// pointer to texture image
-				);
-				SDL_FreeSurface(teximage);
-				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-				glDisable(GL_TEXTURE_2D);
-				return (glGetError() == GL_NO_ERROR);
-						
-						
-						glBegin(GL_LINE_LOOP);
-			for (int i=0; i < 360; i++)
-			{
-				glVertex3f(
-					cos(DEG2RAD(i)) * DUCK_RADIUS,
-					sin(DEG2RAD(i)) * DUCK_RADIUS,
-					0.0);
-			}
-			glVertex3f(0.0, 0.0, 0.0);
-
-
-
-
-			glBegin(GL_LINE_LOOP);
-			for (int i=0; i < 360; i++)
-			{
-			glVertex3f(
-			cos(DEG2RAD(i)) * DUCK_RADIUS,
-			sin(DEG2RAD(i)) * DUCK_RADIUS,
-			0.0);
-			}
-			glVertex3f(0.0, 0.0, 0.0);
-
-	*/
-
-	return (glGetError() == GL_NO_ERROR);
 }
 
 
@@ -254,30 +167,10 @@ void Duck::render()
 	glEnable(GL_TEXTURE_2D);
 	glMatrixMode(GL_MODELVIEW);
 	b2Vec2 pos = m_body->GetPosition();
-	if (m_body->GetContactList() != 0){
-		jumping = 0;
-	}
-	else{
-		jumping = 1;
-	}
+	Duck::setJumpingState();
 	float angle = RAD2DEG(m_body->GetAngle());
 	glTranslatef(pos.x * PHYS_SCALE, pos.y * PHYS_SCALE, 1.0);
-	if (jumping == 0){
-		if (direction == 1){
-			glBindTexture(GL_TEXTURE_2D, m_tex[0]);
-		}
-		if (direction == 0){
-			glBindTexture(GL_TEXTURE_2D, m_tex[1]);
-		}
-	}
-	if (jumping == 1){
-		if (direction == 1){
-			glBindTexture(GL_TEXTURE_2D, m_tex[2]);
-		}
-		if (direction == 0){
-			glBindTexture(GL_TEXTURE_2D, m_tex[3]);
-		}
-	}
+	glBindTexture(GL_TEXTURE_2D, Duck::getTextureToBind());
 	glCallList(m_dl);
 	glDisable(GL_TEXTURE_2D);
 }
@@ -363,5 +256,36 @@ void Duck::set_camera_to_duck() const
 		);
 
 	glScalef(scaling, scaling, 1);
+}
+
+GLuint Duck::getTextureToBind()
+{
+	if (jumping == 0){
+		if (direction == 1){
+			return m_tex[0];
+		}
+		if (direction == 0){
+			return m_tex[1];
+		}
+	}
+	if (jumping == 1){
+		if (direction == 1){
+			return m_tex[2];
+		}
+		if (direction == 0){
+			return m_tex[3];
+		}
+	}
+	return 0;
+}
+
+void Duck::setJumpingState()
+{
+	if (m_body->GetContactList() != 0){
+		jumping = 0;
+	}
+	else{
+		jumping = 1;
+	}
 }
 
