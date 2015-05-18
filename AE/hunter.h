@@ -35,12 +35,16 @@ public:
 	int get_min_x() const { return m_min_x; }
 	int get_max_x() const { return m_max_x; }
 
+	static void setDirection(bool dir);
+	GLuint getTextureToBind();
+
 private:
 
 	// For rendering. Common for all Hunter instances.
 	static GLuint m_dl;
-	static GLuint m_tex;
+	static GLuint m_tex[2];
 
+	static bool direction;
 
 	// Decision tree for hunter AI.
 	Hunter_AI_Node*	m_decision_tree;

@@ -233,12 +233,13 @@ void Duck::set_camera_to_duck() const
 	//
 	// For constant scale, set scaling = GF_SCALE.
 	//
-	b2Vec2 pos = m_body->GetPosition();
-	float scaling = (DUCK_ORIG_Y - pos.y * PHYS_SCALE) / DUCK_ORIG_Y;
-	if (scaling < 0.1)
-		scaling = 0.1;
-	if (scaling > 1.0)
-		scaling = 1.0;
+	b2Vec2 pos = m_body->GetPosition(); 
+	b2Vec2 vel = m_body->GetLinearVelocity();
+	float scaling= abs(vel.x);
+	if (scaling < 0.5)
+		scaling = 0.5;
+	if (scaling > 0.5)
+		scaling = 0.5;
 
 	//
 	// Center the duck.

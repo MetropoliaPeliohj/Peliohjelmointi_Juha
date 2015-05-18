@@ -121,6 +121,7 @@ void Do_Move_Left::evaluate()
 		),
 		m_hunter->get_body()->GetAngle()
 	);
+	Hunter::setDirection(0);
 }
 
 
@@ -143,6 +144,7 @@ void Do_Move_Right::evaluate()
 		),
 		m_hunter->get_body()->GetAngle()
 	);
+	Hunter::setDirection(1);
 }
 
 

@@ -1,19 +1,8 @@
-﻿  level.cpp
-f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
+﻿  hunter_ai.cpp
+f:\geimifinal\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
           f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
-f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
+f:\geimifinal\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
           f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-f:\geimifinal\peliohjelmointi\ae\level.cpp(199): warning C4244: '=' : conversion from 'GLint' to 'GLfloat', possible loss of data
-f:\geimifinal\peliohjelmointi\ae\level.cpp(200): warning C4244: '=' : conversion from 'GLint' to 'GLfloat', possible loss of data
-f:\geimifinal\peliohjelmointi\ae\level.cpp(216): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-f:\geimifinal\peliohjelmointi\ae\level.cpp(217): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-  duck.cpp
-f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
-f:\geimifinal\peliohjelmointi\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-f:\geimifinal\peliohjelmointi\ae\duck.cpp(43): warning C4305: 'argument' : truncation from 'double' to 'float32'
-f:\geimifinal\peliohjelmointi\ae\duck.cpp(171): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-f:\geimifinal\peliohjelmointi\ae\duck.cpp(239): warning C4305: '=' : truncation from 'double' to 'float'
-  Generating Code...
-  AE.vcxproj -> F:\GeimiFinal\peliohjelmointi\Debug\AE.exe
+f:\geimifinal\ae\hunter_ai.cpp(100): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+f:\geimifinal\ae\hunter_ai.cpp(100): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+  AE.vcxproj -> F:\GeimiFinal\Debug\AE.exe
