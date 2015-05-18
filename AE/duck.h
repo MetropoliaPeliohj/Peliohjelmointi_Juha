@@ -14,6 +14,11 @@ class Duck : public Renderable, public Physable
 {
 public:
 
+	bool goLeft;
+	bool goRight;
+	bool goJump;
+	bool goShoot;
+
 	Duck(int, int);
 	virtual ~Duck();
 
@@ -33,6 +38,7 @@ public:
 	void jump();
 	int is_alive() const	{ return m_is_alive; }
 	void kill()				{ m_is_alive = 0; }
+	void handle_inputs();
 
 	// Camera will follow the duck.
 	void set_camera_to_duck() const;

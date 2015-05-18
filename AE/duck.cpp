@@ -257,6 +257,13 @@ void Duck::jump()
 	}
 }
 
+void Duck::handle_inputs()
+{
+	if (this->goLeft) left();
+	if (this->goRight) right();
+	if (this->goJump) jump();
+}
+
 
 /**
 	Set modelview matrix so that the duck is centralized

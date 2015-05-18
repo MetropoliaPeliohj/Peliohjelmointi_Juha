@@ -98,15 +98,29 @@ int main(int argc, char* argv[])
 
 			in.update();
 
+			// If button pressed
 			if (in.isKeyDown(SDLK_LEFT)){
-				duck.left();
+				duck.goLeft = true;
 			}
 			if (in.isKeyDown(SDLK_RIGHT)){
-				duck.right();
+				duck.goRight = true;
 			}
 			if (in.isKeyDown(SDLK_SPACE)){
-				duck.jump();
+				duck.goJump = true;
 			}
+
+			// If button UP
+			if (in.isKeyUp(SDLK_LEFT)){
+				duck.goLeft = false;
+			}
+			if (in.isKeyUp(SDLK_RIGHT)){
+				duck.goRight = false;
+			}
+			if (in.isKeyUp(SDLK_SPACE)){
+				duck.goJump = false;
+			}
+
+			duck.handle_inputs();
 
 		}
 
