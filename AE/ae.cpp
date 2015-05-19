@@ -22,13 +22,13 @@
 #include "world.h"
 #include "input.h"
 #include "deletion_list.h"
+#include "ammobox.h"
 
 static SDL_Window*		window		= 0;
 static SDL_GLContext	gl_context	= 0;
 
 int init_game();
 int fini_game();
-
 
 /**
 	A N K A N   E L A M A A
@@ -47,9 +47,9 @@ int main(int argc, char* argv[])
 	}
 	Log::log(LOG_INFO, "Game initialized.");
 
-	// FOR TESTING.
+	// For testing.
 	Level test_level;
-	if (test_level.load("test_level.tmx") && test_level.init())
+	if (test_level.load("test_level.tmx") && test_level.init_rendering())
 		Log::log(LOG_INFO, "Test level loaded and initialized successfully.");
 	else
 	{
@@ -60,22 +60,31 @@ int main(int argc, char* argv[])
 	// Init windowing and rendering.
 	if (!Hunter::init_rendering())	return 1;
 	if (!Bullet::init_rendering())	return 1;
-
-	// Duck.
-	Duck duck(100, 500);
-	duck.init();
+	if (!Ammobox::init_rendering())	return 1;
+	if (!Duck::init_rendering())	return 1;
 
 	// Hunters.
 	Hunter hunter1(2000, 1000, 2000, 2200);
 	Hunter hunter2(5000, 1000, 5000, 5400);
 	Hunter hunter3(1600, 128, 1250, 3500);
 
+	// Ammo boxes.
+	Ammobox box1(300, 500);
+	Ammobox box2(500, 500);
+	Ammobox box3(700, 500);
+
+	// Duck.
+	Duck duck(100, 500);
+	
 	// Add renderables to the list.
-	Render_List::get()->push_back(&duck);
+	Render_List::get()->push_back(&test_level);
 	Render_List::get()->push_back(&hunter1);
 	Render_List::get()->push_back(&hunter2);
 	Render_List::get()->push_back(&hunter3);
-	Render_List::get()->push_back(&test_level);
+	Render_List::get()->push_back(&box1);
+	Render_List::get()->push_back(&box2);
+	Render_List::get()->push_back(&box3);
+	Render_List::get()->push_back(&duck);
 
 	// Add all AI controlled items to the list.
 	AI_List::get()->push_back(&hunter1);
@@ -100,15 +109,12 @@ int main(int argc, char* argv[])
 
 			// If button pressed
 			if (in.isKeyDown(SDLK_LEFT)){
-				duck.left();
 				duck.goLeft = true;
 			}
 			if (in.isKeyDown(SDLK_RIGHT)){
-				duck.right();
 				duck.goRight = true;
 			}
 			if (in.isKeyDown(SDLK_SPACE)){
-				duck.jump();
 				duck.goJump = true;
 			}
 			if (in.isKeyDown(SDLK_LCTRL)){
@@ -128,7 +134,6 @@ int main(int argc, char* argv[])
 			if (in.isKeyUp(SDLK_LCTRL)){
 				duck.doShoot = false;
 			}
-
 			duck.handle_inputs();
 		}
 
@@ -152,15 +157,15 @@ int main(int argc, char* argv[])
 	}
 
 	Log::log(LOG_INFO, "Exiting.");
-	test_level.fini();
-	duck.fini();
+	test_level.finish_rendering();
+	duck.finish_rendering();
 	Hunter::finish_rendering();
+	Bullet::finish_rendering();
 	if (!fini_game())
 		return 1;
 
 	return 0;
 }
-
 
 /**
 	Global initializations.
@@ -194,7 +199,6 @@ int init_game()
 		return 0;
 	}
 	Log::log(LOG_INFO, "Window created.");
-
 
 	// For OpenGL context creation, see
 	// https://wiki.libsdl.org/SDL_GL_CreateContext
@@ -234,7 +238,6 @@ int init_game()
 
 	return 1;
 }
-
 
 /**
 	Global finalizations.

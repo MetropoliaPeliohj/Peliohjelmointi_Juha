@@ -40,7 +40,7 @@ Level::~Level()
 
 	\return		1 for success, 0 otherwise
 */
-int	Level::init()
+int	Level::init_rendering()
 {
 	//
 	// Create and prepare VBO.
@@ -98,7 +98,7 @@ void Level::render()
 /**
 	Level clean up.
 */
-void Level::fini()
+void Level::finish_rendering()
 {
 	glDeleteBuffers(1, &m_vbo);
 	m_vbo = 0;

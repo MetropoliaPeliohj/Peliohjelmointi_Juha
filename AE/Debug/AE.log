@@ -1,62 +1,11 @@
-﻿  hunter.cpp
-f:\geimifinal\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
-f:\geimifinal\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-f:\geimifinal\ae\hunter.cpp(43): warning C4305: 'argument' : truncation from 'double' to 'float32'
-f:\geimifinal\ae\hunter.cpp(157): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-  Generating Code...
-  Compiling...
-  world.cpp
-  log.cpp
-  level.cpp
-f:\geimifinal\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
-f:\geimifinal\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-f:\geimifinal\ae\level.cpp(199): warning C4244: '=' : conversion from 'GLint' to 'GLfloat', possible loss of data
-f:\geimifinal\ae\level.cpp(200): warning C4244: '=' : conversion from 'GLint' to 'GLfloat', possible loss of data
-f:\geimifinal\ae\level.cpp(216): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-f:\geimifinal\ae\level.cpp(217): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-  hunter_ai.cpp
-f:\geimifinal\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
-f:\geimifinal\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-f:\geimifinal\ae\hunter_ai.cpp(101): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-f:\geimifinal\ae\hunter_ai.cpp(101): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-  duck.cpp
+﻿  duck.cpp
 f:\geimifinal\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
           f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
 f:\geimifinal\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
           f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
 f:\geimifinal\ae\duck.cpp(42): warning C4305: 'argument' : truncation from 'double' to 'float32'
-f:\geimifinal\ae\duck.cpp(170): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-f:\geimifinal\ae\duck.cpp(235): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-  deletion_list.cpp
-  collision.cpp
-f:\geimifinal\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
-f:\geimifinal\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-  bullet.cpp
-f:\geimifinal\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
-f:\geimifinal\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-f:\geimifinal\ae\bullet.cpp(44): warning C4244: 'argument' : conversion from 'double' to 'float32', possible loss of data
-f:\geimifinal\ae\bullet.cpp(78): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
-f:\geimifinal\ae\bullet.cpp(93): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-  ae.cpp
-f:\geimifinal\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
-f:\geimifinal\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-f:\geimifinal\ae\ae.cpp(150): warning C4244: 'argument' : conversion from 'double' to 'float32', possible loss of data
-  Shootable.cpp
-f:\geimifinal\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
-f:\geimifinal\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
-          f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-  Generating Code...
+f:\geimifinal\ae\duck.cpp(172): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+f:\geimifinal\ae\duck.cpp(240): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+f:\geimifinal\ae\duck.cpp(268): warning C4305: 'initializing' : truncation from 'double' to 'float'
+f:\geimifinal\ae\duck.cpp(332): warning C4715: 'Duck::getTextureToBind' : not all control paths return a value
   AE.vcxproj -> F:\GeimiFinal\Debug\AE.exe

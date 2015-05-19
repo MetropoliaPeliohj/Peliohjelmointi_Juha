@@ -8,6 +8,7 @@
 #include "ae.h"
 #include "world.h"
 #include "hunter.h"
+#include "bullet.h"
 
 GLuint Hunter::m_dl		= 0;
 GLuint Hunter::m_tex[2] = { 0, 0 };

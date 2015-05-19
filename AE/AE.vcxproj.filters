@@ -60,6 +60,9 @@
     <ClCompile Include="IHealthable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ammobox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ae.h">
@@ -123,6 +126,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IAI_Character.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ammobox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

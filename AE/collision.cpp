@@ -29,6 +29,9 @@ void Contact_Listener::BeginContact(b2Contact *contact)
 		}
 	}
 
+	// Check if the duck has collected a box.
+
+
 	// Delete bullets from rendering and physics.
 	if (body_a->IsBullet())
 	{

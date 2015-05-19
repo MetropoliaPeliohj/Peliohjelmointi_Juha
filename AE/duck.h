@@ -30,8 +30,8 @@ public:
 	virtual void render();
 
 	// Rendering initialization.
-	static int	init();
-	static void	fini();
+	static int	init_rendering();
+	static void	finish_rendering();
 
 	// Duck control and health.
 	void left();
@@ -57,8 +57,11 @@ private:
 	// we get physics in).
 	int _x;
 	int _y;
+
+	// State of duck's direction and jumping.
 	static bool direction;
 	static bool jumping;
+	static bool moving;
 
 	// For rendering. Common for all Duck instances.
 	static GLuint m_dl;

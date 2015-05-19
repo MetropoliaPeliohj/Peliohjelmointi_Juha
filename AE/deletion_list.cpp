@@ -21,10 +21,12 @@ void Deletion_List::push_back_unique(IPhysable *p)
 */
 void Deletion_List::delete_and_clear()
 {
+
 	for (Deletion_List::iterator i = begin(); i != end(); i++)
 	{
 		World::get()->DestroyBody((*i)->get_body());
  		delete (*i);
 	}
 	clear();
+
 }

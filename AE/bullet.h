@@ -31,6 +31,8 @@ private:
 	// Display List for rendering Bullets.
 	// Common for all Bullet instances.
 	static GLuint m_dl;
+	static GLuint m_tex;
+
 };
 
 #endif // _BULLET_H_

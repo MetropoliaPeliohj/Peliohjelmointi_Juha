@@ -85,6 +85,7 @@
     <ClCompile Include="..\3rdparty\tinyxml2\tinyxml2.cpp" />
     <ClCompile Include="ae.cpp" />
     <ClCompile Include="ai_list.cpp" />
+    <ClCompile Include="ammobox.cpp" />
     <ClCompile Include="bullet.cpp" />
     <ClCompile Include="collision.cpp" />
     <ClCompile Include="deletion_list.cpp" />
@@ -102,6 +103,7 @@
     <ClInclude Include="ae.h" />
     <ClInclude Include="ai_character.h" />
     <ClInclude Include="ai_list.h" />
+    <ClInclude Include="ammobox.h" />
     <ClInclude Include="bullet.h" />
     <ClInclude Include="collision.h" />
     <ClInclude Include="decision_tree.h" />

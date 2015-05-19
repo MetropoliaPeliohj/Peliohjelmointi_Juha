@@ -36,7 +36,7 @@ public:
 	int get_min_x() const { return m_min_x; }
 	int get_max_x() const { return m_max_x; }
 
-	// Sets hunter's direction
+	// Sets hunter's direction for texturing purposes
 	static void setDirection(bool dir);
 
 	// Returns right texture for displaying

@@ -15,7 +15,7 @@
 #define LOG_ERROR				2
 #define DUCK_RADIUS				20
 #define PHYS_SCALE				100
-#define TIMESTEP				(1.0 / 60.0)
+
 #define GRAVITY					-30.0f
 
 #define DUCK_WIDTH				128
@@ -25,7 +25,7 @@
 #define DUCK_RADIUS				20
 #define DUCK_FORCE_LEFT			-100
 #define DUCK_FORCE_RIGHT		100
-#define DUCK_FORCE_JUMP			200
+#define DUCK_FORCE_JUMP			800
 #define DUCK_DENSITY			0.9f
 #define DUCK_FRICTION			0.8f
 #define DUCK_SHOOTDELAYMS		100
@@ -42,9 +42,14 @@
 #define HUNTER_SHOOTDELAYMS		2000
 #define HUNTER_BULLET_FORCE		5
 
+#define BULLET_WIDTH			12
+#define BULLET_HEIGHT			12
 #define BULLET_RADIUS			5
 #define BULLET_DENSITY			1.0f
 #define BULLET_FRICTION			0.8f
 #define BULLET_FORCE			5
+
+#define AMMOBOX_WIDTH			128
+#define AMMOBOX_HEIGHT			128
 
 #endif

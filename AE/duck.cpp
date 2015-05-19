@@ -9,10 +9,10 @@
 #include "duck.h"
 #include "collision.h"
 
-GLuint Duck::m_dl				= 0;
-GLuint Duck::m_tex[4]			= { 0, 0, 0, 0 };
-Duck*  Duck::m_instance			= 0;
-bool Duck::direction			= 1;
+GLuint Duck::m_dl			= 0;
+GLuint Duck::m_tex[4]		= { 0, 0, 0, 0 };
+Duck*  Duck::m_instance		= 0;
+bool Duck::direction				= 1;
 bool Duck::jumping				= 0;
 
 /**
@@ -65,7 +65,7 @@ Duck::~Duck()
 
 	Returns 1 for success, 0 otherwise.
 */
-int	Duck::init()
+int	Duck::init_rendering()
 {
 	if (Duck::m_dl)
 		return 1;
@@ -74,6 +74,8 @@ int	Duck::init()
 	// Prepare a display list for rendering.
 	// TODO: NOW JUST A PLACEHOLDER (CIRCLE).
 	//
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	Duck::m_dl = glGenLists(1);
 	glNewList(Duck::m_dl, GL_COMPILE);
 	glBegin(GL_QUADS);
@@ -178,7 +180,7 @@ void Duck::render()
 /**
 	Rendering clean-up.
 */
-void Duck::fini()
+void Duck::finish_rendering()
 {
 	glDeleteLists(Duck::m_dl, 1);
 	Duck::m_dl = 0;
@@ -211,9 +213,9 @@ void Duck::right()
 void Duck::jump()
 {
 	// if the number of contacts if more than 0, then jump!
-	// if (m_body->GetContactList() != 0)
+	 if (m_body->GetContactList() != 0)
 		m_body->ApplyForceToCenter(b2Vec2(0, DUCK_FORCE_JUMP));
-		//jumping = 1;
+		jumping = 1;
 }
 
 void Duck::shoot()
@@ -223,9 +225,12 @@ void Duck::shoot()
 
 	float duck_x_pScale = duck_x * PHYS_SCALE;
 	float duck_y_pScale = duck_y * PHYS_SCALE;
-	//float angle = RAD2DEG(atan2(duck_y, duck_x));
-	float angle = 25.0f;
 
+	float angle = 25.0f;
+	if (direction == 0){
+		angle = 155.0f;
+		duck_x_pScale = duck_x_pScale - 200;
+	}
 	this->try_shoot(
 		duck_x_pScale + 100,
 		duck_y_pScale + 50,
@@ -260,11 +265,14 @@ void Duck::set_camera_to_duck() const
 	//
 	b2Vec2 pos = m_body->GetPosition(); 
 	b2Vec2 vel = m_body->GetLinearVelocity();
-	float scaling= abs(vel.x);
+	float scaling = 0.7;
+	/*
+	float scaling = abs(vel.x);
 	if (scaling < 0.5)
 		scaling = 0.5;
 	if (scaling > 0.5)
 		scaling = 0.5;
+	*/
 
 	//
 	// Center the duck.
@@ -321,6 +329,5 @@ GLuint Duck::getTextureToBind()
 			return m_tex[3];
 		}
 	}
-	return 0;
 }
 
