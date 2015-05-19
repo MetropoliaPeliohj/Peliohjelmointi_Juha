@@ -1,10 +1,22 @@
 #ifndef _AE_H_
 #define _AE_H_
 
-#define DEG2RAD(D)			((D) * 0.0174532925)
-#define RAD2DEG(R)			((R) * 57.2957795)
-#define BUFFER_OFFSET(i)	((void*)(i))
+#define DEG2RAD(D)				((D) * 0.0174532925)
+#define RAD2DEG(R)				((R) * 57.2957795)
+#define BUFFER_OFFSET(i)		((void*)(i))
 
+#define WIDTH					1024
+#define HEIGHT					768
+#define WINDOW_TITLE			"Ankan Elamaa"
+#define CLEAR_COLOR				0, 0, 0, 0
+#define DRAW_COLOR				1.0, 1.0, 1.0
+#define LOG_INFO				0
+#define LOG_WARNING				1
+#define LOG_ERROR				2
+#define DUCK_RADIUS				20
+#define PHYS_SCALE				100
+#define TIMESTEP				(1.0 / 60.0)
+#define GRAVITY					-30.0f
 
 #define WIDTH				1024
 #define HEIGHT				768
@@ -26,7 +38,7 @@
 #define DUCK_RADIUS			20
 #define DUCK_FORCE_LEFT		-100
 #define DUCK_FORCE_RIGHT	100
-#define DUCK_FORCE_JUMP		800
+#define DUCK_FORCE_JUMP		200
 #define DUCK_DENSITY		0.9f
 #define DUCK_FRICTION		0.8f
 #define DUCK_SHOOTDELAYMS	100

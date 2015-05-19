@@ -11,8 +11,9 @@
 #include "hunter.h"
 #include "Character_list.h"
 
-GLuint Hunter::m_dl = 0;
-GLuint Hunter::m_tex = 0;
+GLuint Hunter::m_dl		= 0;
+GLuint Hunter::m_tex[2] = { 0, 0 };
+bool Hunter::direction	= 0;
 
 
 /**
@@ -110,9 +111,9 @@ int	Hunter::init_rendering()
 	// Textures.
 	//
 	glEnable(GL_TEXTURE_2D);
-	glGenTextures(1, &m_tex);
-	glBindTexture(GL_TEXTURE_2D, m_tex);
-	SDL_Surface *teximage = IMG_Load("chrome.png");
+	glGenTextures(1, m_tex);
+	glBindTexture(GL_TEXTURE_2D, m_tex[0]);
+	SDL_Surface *teximage = IMG_Load("hunter.png");
 	if (!teximage)
 		return 0;
 	gluBuild2DMipmaps(
@@ -125,6 +126,22 @@ int	Hunter::init_rendering()
 		teximage->pixels	// pointer to texture image
 		);
 	SDL_FreeSurface(teximage);
+
+	glBindTexture(GL_TEXTURE_2D, m_tex[1]);
+	SDL_Surface *teximage2 = IMG_Load("hunter2.png");
+	if (!teximage2)
+		return 0;
+	gluBuild2DMipmaps(
+		GL_TEXTURE_2D,		// texture to specify
+		GL_RGBA,			// internal texture storage format
+		teximage2->w,		// texture width
+		teximage2->h,		// texture height
+		GL_RGBA,			// pixel format (possibly RGBA)
+		GL_UNSIGNED_BYTE,	// color component format
+		teximage2->pixels	// pointer to texture image
+		);
+	SDL_FreeSurface(teximage2);
+
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -145,7 +162,7 @@ void Hunter::render()
 	float angle = m_body->GetAngle() * 57.2957795;
 	glTranslatef(pos.x * PHYS_SCALE, pos.y * PHYS_SCALE, 1.0);
 	glRotatef(angle, 0.0, 0.0, 1.0);
-	glBindTexture(GL_TEXTURE_2D, m_tex);
+	glBindTexture(GL_TEXTURE_2D, Hunter::getTextureToBind());
 	glCallList(m_dl);
 	glDisable(GL_TEXTURE_2D);
 }
@@ -159,8 +176,9 @@ void Hunter::finish_rendering()
 	glDeleteLists(Hunter::m_dl, 1);
 	Hunter::m_dl = 0;
 
-	glDeleteTextures(1, &m_tex);
-	m_tex = 0;
+	glDeleteTextures(2, m_tex);
+	m_tex[0] = 0;
+	m_tex[1] = 0;
 }
 
 
@@ -170,4 +188,25 @@ void Hunter::finish_rendering()
 void Hunter::run_ai()
 {
 	m_decision_tree->evaluate();
+}
+
+GLuint Hunter::getTextureToBind()
+{
+	if (direction == 0){
+		return m_tex[0];
+	}
+	if (direction == 1){
+		return m_tex[1];
+	}
+	return 0;
+}
+
+void Hunter::setDirection(bool dir)
+{
+	if (dir == 1){
+		direction = 1;
+	}
+	if (dir == 0){
+		direction = 0;
+	}
 }

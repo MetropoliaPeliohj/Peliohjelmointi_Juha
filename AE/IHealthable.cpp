@@ -11,13 +11,6 @@ void IHealthable::damageReceived(unsigned char damage)
 		m_is_alive = false;
 	}
 	Log::log(0, "*** Someone got hit ***");
+
 }
 
-IHealthable::IHealthable()
-{
-}
-
-
-IHealthable::~IHealthable()
-{
-}

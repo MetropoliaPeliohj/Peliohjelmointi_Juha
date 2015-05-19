@@ -4,7 +4,6 @@
 #include <list>
 #include "IRenderable.h"
 
-
 /**
 	For keeping track of and for rendering of
 	all the renderable items. Singleton.

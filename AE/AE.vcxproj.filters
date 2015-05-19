@@ -114,8 +114,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IAI_Character.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="IPhysable.h">
       <Filter>Header Files</Filter>
     </ClInclude>

@@ -12,10 +12,11 @@
 #include "Character_list.h"
 
 
-GLuint Duck::m_dl		= 0;
-GLuint Duck::m_tex = 0;
-Duck*  Duck::m_instance = 0;
-
+GLuint Duck::m_dl				= 0;
+GLuint Duck::m_tex[4]			= { 0, 0, 0, 0 };
+Duck*  Duck::m_instance			= 0;
+bool Duck::direction			= 1;
+bool Duck::jumping				= 0;
 
 /**
 	(Singleton) instance access.
@@ -31,14 +32,6 @@ Duck* Duck::get_duck()
 */
 Duck::Duck(int x, int y) : _x(x), _y(y)
 {
-
-	/*
-		b2CircleShape circleShape;
-	circleShape.m_radius = DUCK_RADIUS / (float)PHYS_SCALE;
-	b2FixtureDef fixtureDef;
-	fixtureDef.shape = &circleShape;
-	
-	*/
 	// Dynamic body for physics.
 	b2BodyDef bodyDef;
 	bodyDef.type = b2_dynamicBody;
@@ -101,8 +94,8 @@ int	Duck::init()
 	// Textures.
 	//
 	glEnable(GL_TEXTURE_2D);
-	glGenTextures(1, &m_tex);
-	glBindTexture(GL_TEXTURE_2D, m_tex);
+	glGenTextures(4, m_tex);
+	glBindTexture(GL_TEXTURE_2D, m_tex[0]);
 	SDL_Surface *teximage = IMG_Load("duck.png");
 	if (!teximage)
 		return 0;
@@ -117,91 +110,56 @@ int	Duck::init()
 		);
 	SDL_FreeSurface(teximage);
 
+	glBindTexture(GL_TEXTURE_2D, m_tex[1]);
+	SDL_Surface *teximage2 = IMG_Load("duck2.png");
+	if(!teximage2)
+		return 0;
+	gluBuild2DMipmaps(
+		GL_TEXTURE_2D,		// texture to specify
+		GL_RGBA,			// internal texture storage format
+		teximage2->w,		// texture width
+		teximage2->h,		// texture height
+		GL_RGBA,			// pixel format (possibly RGBA)
+		GL_UNSIGNED_BYTE,	// color component format
+		teximage2->pixels	// pointer to texture image
+		);
+	SDL_FreeSurface(teximage2);
+
+	glBindTexture(GL_TEXTURE_2D, m_tex[2]);
+	SDL_Surface *teximage3 = IMG_Load("duck3.png");
+	if (!teximage3)
+		return 0;
+	gluBuild2DMipmaps(
+		GL_TEXTURE_2D,		// texture to specify
+		GL_RGBA,			// internal texture storage format
+		teximage3->w,		// texture width
+		teximage3->h,		// texture height
+		GL_RGBA,			// pixel format (possibly RGBA)
+		GL_UNSIGNED_BYTE,	// color component format
+		teximage3->pixels	// pointer to texture image
+		);
+	SDL_FreeSurface(teximage3);
+
+	glBindTexture(GL_TEXTURE_2D, m_tex[3]);
+	SDL_Surface *teximage4 = IMG_Load("duck4.png");
+	if (!teximage4)
+		return 0;
+	gluBuild2DMipmaps(
+		GL_TEXTURE_2D,		// texture to specify
+		GL_RGBA,			// internal texture storage format
+		teximage4->w,		// texture width
+		teximage4->h,		// texture height
+		GL_RGBA,			// pixel format (possibly RGBA)
+		GL_UNSIGNED_BYTE,	// color component format
+		teximage4->pixels	// pointer to texture image
+		);
+	SDL_FreeSurface(teximage4);
+
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glDisable(GL_TEXTURE_2D);
-	return (glGetError() == GL_NO_ERROR);
-
-
-
-	/*
-
-																							// LEVEL.CPP TEKSTUROINTI:
-																							glEnable(GL_TEXTURE_2D);
-																							glGenTextures(1, &m_tex);
-																							glBindTexture(GL_TEXTURE_2D, m_tex);
-																							SDL_Surface *teximage = IMG_Load(m_image_file_name.c_str());
-																							if (!teximage)
-																								return 0;
-																							gluBuild2DMipmaps(
-																								GL_TEXTURE_2D,		// texture to specify
-																								GL_RGBA,			// internal texture storage format
-																								teximage->w,		// texture width
-																								teximage->h,		// texture height
-																								GL_RGBA,			// pixel format (possibly RGBA)
-																								GL_UNSIGNED_BYTE,	// color component format
-																								teximage->pixels	// pointer to texture image
-																								);
-																							SDL_FreeSurface(teximage);
-																							glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-																							glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-																							glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-																							glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-																							glDisable(GL_TEXTURE_2D);
-																							return (glGetError() == GL_NO_ERROR);
-
-				// HUNTER.CPP TEKSTUROINTI
-				glEnable(GL_TEXTURE_2D);
-				glGenTextures(1, &m_tex);
-				glBindTexture(GL_TEXTURE_2D, m_tex);
-				SDL_Surface *teximage = IMG_Load("chrome.png");
-				if (!teximage)
-				return 0;
-				gluBuild2DMipmaps(
-				GL_TEXTURE_2D,		// texture to specify
-				GL_RGBA,			// internal texture storage format
-				teximage->w,		// texture width
-				teximage->h,		// texture height
-				GL_RGBA,			// pixel format (possibly RGBA)
-				GL_UNSIGNED_BYTE,	// color component format
-				teximage->pixels	// pointer to texture image
-				);
-				SDL_FreeSurface(teximage);
-				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
-				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-				glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-				glDisable(GL_TEXTURE_2D);
-				return (glGetError() == GL_NO_ERROR);
-						
-						
-						glBegin(GL_LINE_LOOP);
-			for (int i=0; i < 360; i++)
-			{
-				glVertex3f(
-					cos(DEG2RAD(i)) * DUCK_RADIUS,
-					sin(DEG2RAD(i)) * DUCK_RADIUS,
-					0.0);
-			}
-			glVertex3f(0.0, 0.0, 0.0);
-
-
-
-
-			glBegin(GL_LINE_LOOP);
-			for (int i=0; i < 360; i++)
-			{
-			glVertex3f(
-			cos(DEG2RAD(i)) * DUCK_RADIUS,
-			sin(DEG2RAD(i)) * DUCK_RADIUS,
-			0.0);
-			}
-			glVertex3f(0.0, 0.0, 0.0);
-
-	*/
-
 	return (glGetError() == GL_NO_ERROR);
 }
 
@@ -214,9 +172,10 @@ void Duck::render()
 	glEnable(GL_TEXTURE_2D);
 	glMatrixMode(GL_MODELVIEW);
 	b2Vec2 pos = m_body->GetPosition();
+	Duck::setJumpingState();
 	float angle = RAD2DEG(m_body->GetAngle());
 	glTranslatef(pos.x * PHYS_SCALE, pos.y * PHYS_SCALE, 1.0);
-	glBindTexture(GL_TEXTURE_2D, m_tex);
+	glBindTexture(GL_TEXTURE_2D, Duck::getTextureToBind());
 	glCallList(m_dl);
 	glDisable(GL_TEXTURE_2D);
 }
@@ -237,10 +196,8 @@ void Duck::fini()
 */
 void Duck::left()
 {
-	b2Vec2 pos = m_body->GetPosition();
-	
+	direction = 0;
 	m_body->ApplyForceToCenter(b2Vec2(DUCK_FORCE_LEFT, 0));
-	
 }
 
 
@@ -249,6 +206,7 @@ void Duck::left()
 */
 void Duck::right()
 {
+	direction = 1;
 	m_body->ApplyForceToCenter(b2Vec2(DUCK_FORCE_RIGHT, 0));
 }
 
@@ -258,9 +216,29 @@ void Duck::right()
 */
 void Duck::jump()
 {
-	if (Contact_Listener::getContactState() == 1){
+	// if the number of contacts if more than 0, then jump!
+	// if (m_body->GetContactList() != 0)
 		m_body->ApplyForceToCenter(b2Vec2(0, DUCK_FORCE_JUMP));
-	}
+		//jumping = 1;
+}
+
+void Duck::shoot()
+{
+	float duck_x = this->get_body()->GetPosition().x;
+	float duck_y = this->get_body()->GetPosition().y;
+
+	float duck_x_pScale = duck_x * PHYS_SCALE;
+	float duck_y_pScale = duck_y * PHYS_SCALE;
+	//float angle = RAD2DEG(atan2(duck_y, duck_x));
+	float angle = 25.0f;
+
+	this->try_shoot(
+		duck_x_pScale + 100,
+		duck_y_pScale + 50,
+		angle,
+		DUCK_BULLET_FORCE,
+		DUCK_SHOOTDELAYMS
+		);
 }
 
 /**
@@ -284,7 +262,6 @@ void Duck::shoot()
 		DUCK_SHOOTDELAYMS
 		);
 }
-
 void Duck::handle_inputs()
 {
 	if (this->goLeft) left();
@@ -292,7 +269,6 @@ void Duck::handle_inputs()
 	if (this->goJump) jump();
 	if (this->doShoot) shoot();
 }
-
 
 /**
 	Set modelview matrix so that the duck is centralized
@@ -309,12 +285,13 @@ void Duck::set_camera_to_duck() const
 	//
 	// For constant scale, set scaling = GF_SCALE.
 	//
-	b2Vec2 pos = m_body->GetPosition();
-	float scaling = (DUCK_ORIG_Y - pos.y * PHYS_SCALE) / DUCK_ORIG_Y;
-	if (scaling < 0.1)
-		scaling = 0.1;
-	if (scaling > 1.0)
-		scaling = 1.0;
+	b2Vec2 pos = m_body->GetPosition(); 
+	b2Vec2 vel = m_body->GetLinearVelocity();
+	float scaling= abs(vel.x);
+	if (scaling < 0.5)
+		scaling = 0.5;
+	if (scaling > 0.5)
+		scaling = 0.5;
 
 	//
 	// Center the duck.
@@ -333,3 +310,44 @@ void Duck::set_camera_to_duck() const
 
 	glScalef(scaling, scaling, 1);
 }
+
+/**
+Sets duck's jump state depending
+on contacts duck has.
+*/
+void Duck::setJumpingState()
+{
+	if (m_body->GetContactList() != 0){
+		jumping = 0;
+	}
+	else{
+		jumping = 1;
+	}
+}
+
+/**
+Returns correct texture depending
+on value of "jumping" and "direction"
+variables.
+*/
+GLuint Duck::getTextureToBind()
+{
+	if (jumping == 0){
+		if (direction == 1){
+			return m_tex[0];
+		}
+		if (direction == 0){
+			return m_tex[1];
+		}
+	}
+	if (jumping == 1){
+		if (direction == 1){
+			return m_tex[2];
+		}
+		if (direction == 0){
+			return m_tex[3];
+		}
+	}
+	return 0;
+}
+

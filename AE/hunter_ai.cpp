@@ -99,14 +99,6 @@ void Do_Shoot::evaluate()
 		HUNTER_BULLET_FORCE,
 		HUNTER_SHOOTDELAYMS
 	);
-
-	/*Bullet* bullet = new Bullet(
-		hunter_x * PHYS_SCALE,
-		hunter_y * PHYS_SCALE,
-		RAD2DEG(atan2(duck_y - hunter_y, duck_x - hunter_x)),
-		BULLET_FORCE
-	);
-	Render_List::get()->push_back(bullet);*/
 }
 
 
@@ -129,6 +121,7 @@ void Do_Move_Left::evaluate()
 		),
 		m_hunter->get_body()->GetAngle()
 	);
+	Hunter::setDirection(0);
 }
 
 
@@ -151,6 +144,7 @@ void Do_Move_Right::evaluate()
 		),
 		m_hunter->get_body()->GetAngle()
 	);
+	Hunter::setDirection(1);
 }
 
 

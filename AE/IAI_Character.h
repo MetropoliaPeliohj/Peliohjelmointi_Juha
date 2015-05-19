@@ -4,6 +4,7 @@
 /**
 	Base class for AI controlled objects.
 */
+	
 class IAI_Character
 {
 public:

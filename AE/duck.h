@@ -41,10 +41,15 @@ public:
 	void jump();
 	void handle_inputs();
 	void shoot();
-	
 
 	// Camera will follow the duck.
 	void set_camera_to_duck() const;
+
+	// Returns right texture for displaying
+	GLuint getTextureToBind();
+
+	// Sets duck's jumping state
+	void setJumpingState();
 
 private:
 
@@ -52,10 +57,12 @@ private:
 	// we get physics in).
 	int _x;
 	int _y;
+	static bool direction;
+	static bool jumping;
 
 	// For rendering. Common for all Duck instances.
 	static GLuint m_dl;
-	static GLuint m_tex;
+	static GLuint m_tex[4];
 
 	// For (singleton) instance access.
 	static Duck* m_instance;

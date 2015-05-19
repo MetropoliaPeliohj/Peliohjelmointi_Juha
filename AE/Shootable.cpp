@@ -27,5 +27,4 @@ void IShootable::try_shoot(int x, int y, float angle, float force, unsigned int 
 		Render_List::get()->push_back(bullet);
 		lastTimeShotTimestamp = SDL_GetTicks();
 	}
-	
 }
