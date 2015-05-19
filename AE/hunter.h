@@ -9,12 +9,14 @@
 #include "IPhysable.h"
 #include "IRenderable.h"
 #include "IShootable.h"
+#include "IHealthable.h"
+#include "ICharacter.h"
 
 
 /**
 	Shooting villain.
 */
-class Hunter : public IRenderable, public IPhysable, public IAI_Character, public IShootable
+class Hunter : public IRenderable, public IAI_Character, public ICharacter
 {
 public:
 

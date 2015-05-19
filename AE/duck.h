@@ -6,12 +6,14 @@
 #include "IPhysable.h"
 #include "IRenderable.h"
 #include "IShootable.h"
+#include "IHealthable.h"
+#include "ICharacter.h"
 
 
 /**
 	Player controlled duck.
 */
-class Duck : public IRenderable, public IPhysable, public IShootable
+class Duck : public IRenderable, public ICharacter
 {
 public:
 
@@ -37,8 +39,6 @@ public:
 	void left();
 	void right();
 	void jump();
-	int is_alive() const	{ return m_is_alive; }
-	void kill()				{ m_is_alive = 0; }
 	void handle_inputs();
 	void shoot();
 	
@@ -59,9 +59,6 @@ private:
 
 	// For (singleton) instance access.
 	static Duck* m_instance;
-
-	// Duck health, set to 0 if hit.
-	int m_is_alive;
 };
 
 #endif // _DUCK_H_

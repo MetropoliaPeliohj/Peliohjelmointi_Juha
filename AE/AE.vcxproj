@@ -86,11 +86,13 @@
     <ClCompile Include="ae.cpp" />
     <ClCompile Include="ai_list.cpp" />
     <ClCompile Include="bullet.cpp" />
+    <ClCompile Include="Character_list.cpp" />
     <ClCompile Include="collision.cpp" />
     <ClCompile Include="deletion_list.cpp" />
     <ClCompile Include="duck.cpp" />
     <ClCompile Include="hunter.cpp" />
     <ClCompile Include="hunter_ai.cpp" />
+    <ClCompile Include="IHealthable.cpp" />
     <ClCompile Include="level.cpp" />
     <ClCompile Include="log.cpp" />
     <ClCompile Include="render_list.cpp" />
@@ -99,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ae.h" />
+    <ClInclude Include="Character_list.h" />
     <ClInclude Include="IAI_Character.h" />
     <ClInclude Include="ai_list.h" />
     <ClInclude Include="bullet.h" />
@@ -106,6 +109,8 @@
     <ClInclude Include="decision_tree.h" />
     <ClInclude Include="deletion_list.h" />
     <ClInclude Include="duck.h" />
+    <ClInclude Include="ICharacter.h" />
+    <ClInclude Include="IHealthable.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="hunter.h" />
     <ClInclude Include="hunter_ai.h" />

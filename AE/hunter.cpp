@@ -6,8 +6,10 @@
 #include <SDL_image.h>
 #include <Box2D/Box2D.h>
 #include "ae.h"
+#include "log.h"
 #include "world.h"
 #include "hunter.h"
+#include "Character_list.h"
 
 GLuint Hunter::m_dl = 0;
 GLuint Hunter::m_tex = 0;
@@ -66,6 +68,9 @@ Hunter::Hunter(int x, int y, int min_x, int max_x)
 	dl->_child[0] = l;	dl->_child[1] = dr;
 	dr->_child[0] = r;	dr->_child[1] = w2;
 	m_decision_tree = ds;
+
+	Log::log(0, "Hunter luotu");
+	Character_list::get()->push_back_unique(this);
 }
 
 

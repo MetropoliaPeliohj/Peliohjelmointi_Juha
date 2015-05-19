@@ -5,9 +5,12 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "ae.h"
+#include "log.h"
 #include "world.h"
 #include "duck.h"
 #include "collision.h"
+#include "Character_list.h"
+
 
 GLuint Duck::m_dl		= 0;
 GLuint Duck::m_tex = 0;
@@ -56,6 +59,9 @@ Duck::Duck(int x, int y) : _x(x), _y(y)
 
 	// Set (singleton) instance.
 	Duck::m_instance = this;
+
+	Log::log(0, "Ankka luotu");
+	Character_list::get()->push_back_unique(this);
 }
 
 

@@ -57,6 +57,12 @@
     <ClCompile Include="Shootable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="IHealthable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Character_list.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ae.h">
@@ -114,6 +120,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IShootable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IHealthable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ICharacter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Character_list.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -21,6 +21,9 @@ public:
 
 	static boolean getContactState()	{ return contactState; }
 
+	// Check if bullet hit someone
+	void checkIfBulletHitSomeone(b2Body *body_a, b2Body *body_b);
+
 	// Contact callbacks.
 	void BeginContact(b2Contact*);
 	void EndContact(b2Contact*);

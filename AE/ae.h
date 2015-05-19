@@ -47,5 +47,6 @@
 #define BULLET_DENSITY		1.0f
 #define BULLET_FRICTION		0.8f
 #define BULLET_FORCE		5
+#define BULLET_DAMAGE		25
 
 #endif

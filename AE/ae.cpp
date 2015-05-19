@@ -22,12 +22,15 @@
 #include "world.h"
 #include "input.h"
 #include "deletion_list.h"
+#include "ICharacter.h"
+#include "Character_list.h"
 
 static SDL_Window*		window		= 0;
 static SDL_GLContext	gl_context	= 0;
 
 int init_game();
 int fini_game();
+void check_characters_for_deletion();
 
 
 /**
@@ -92,7 +95,7 @@ int main(int argc, char* argv[])
 	unsigned now;
 
 	input in;
-	while (running && Duck::get_duck()->is_alive())
+	while (running && Duck::get_duck()->checkIfAlive())
 	{
 		if (SDL_PollEvent(&in.getEvent())){
 
@@ -245,4 +248,13 @@ int fini_game()
 	SDL_Quit();
 
 	return 1;
+}
+
+void check_characters_for_deletion()
+{
+	for (Character_list::iterator i = Character_list::get()->begin(); i != Character_list::get()->end(); i++)
+	{
+		if (!(*i)->checkIfAlive())
+			Deletion_List::get()->push_back_unique( (*i) );
+	}
 }
