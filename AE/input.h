@@ -50,11 +50,6 @@ private:
 	const Uint8* keyArray;
 	SDL_Event event;
 
-private:
-
-	const Uint8* keyArray;
-	SDL_Event event;
-
 
 };
 
