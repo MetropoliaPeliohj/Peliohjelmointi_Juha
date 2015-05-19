@@ -91,9 +91,11 @@
     <ClCompile Include="duck.cpp" />
     <ClCompile Include="hunter.cpp" />
     <ClCompile Include="hunter_ai.cpp" />
+    <ClCompile Include="IHealthable.cpp" />
     <ClCompile Include="level.cpp" />
     <ClCompile Include="log.cpp" />
     <ClCompile Include="render_list.cpp" />
+    <ClCompile Include="Shootable.cpp" />
     <ClCompile Include="world.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -105,13 +107,16 @@
     <ClInclude Include="decision_tree.h" />
     <ClInclude Include="deletion_list.h" />
     <ClInclude Include="duck.h" />
+    <ClInclude Include="IAI_Character.h" />
+    <ClInclude Include="IHealthable.h" />
+    <ClInclude Include="IPhysable.h" />
+    <ClInclude Include="IRenderable.h" />
+    <ClInclude Include="IShootable.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="hunter.h" />
     <ClInclude Include="hunter_ai.h" />
     <ClInclude Include="level.h" />
     <ClInclude Include="log.h" />
-    <ClInclude Include="physable.h" />
-    <ClInclude Include="renderable.h" />
     <ClInclude Include="render_list.h" />
     <ClInclude Include="vertex.h" />
     <ClInclude Include="world.h" />

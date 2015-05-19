@@ -211,11 +211,37 @@ void Duck::right()
 void Duck::jump()
 {
 	// if the number of contacts if more than 0, then jump!
-	//if (m_body->GetContactList() != 0)
+	// if (m_body->GetContactList() != 0)
 		m_body->ApplyForceToCenter(b2Vec2(0, DUCK_FORCE_JUMP));
 		//jumping = 1;
 }
 
+void Duck::shoot()
+{
+	float duck_x = this->get_body()->GetPosition().x;
+	float duck_y = this->get_body()->GetPosition().y;
+
+	float duck_x_pScale = duck_x * PHYS_SCALE;
+	float duck_y_pScale = duck_y * PHYS_SCALE;
+	//float angle = RAD2DEG(atan2(duck_y, duck_x));
+	float angle = 25.0f;
+
+	this->try_shoot(
+		duck_x_pScale + 100,
+		duck_y_pScale + 50,
+		angle,
+		DUCK_BULLET_FORCE,
+		DUCK_SHOOTDELAYMS
+		);
+}
+
+void Duck::handle_inputs()
+{
+	if (this->goLeft) left();
+	if (this->goRight) right();
+	if (this->goJump) jump();
+	if (this->doShoot) shoot();
+}
 
 /**
 	Set modelview matrix so that the duck is centralized

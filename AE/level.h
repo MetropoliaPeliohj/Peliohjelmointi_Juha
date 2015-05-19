@@ -7,13 +7,13 @@
 #include <gl/GL.h>
 #include <SDL.h>
 #include "vertex.h"
-#include "renderable.h"
+#include "IRenderable.h"
 
 
 /**
 	Tile-based level.
 */
-class Level : public Renderable
+class Level : public IRenderable
 {
 public:
 

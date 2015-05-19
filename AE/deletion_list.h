@@ -2,13 +2,13 @@
 #define _DELETION_LIST_H_
 
 #include <list>
-#include "physable.h"
+#include "IPhysable.h"
 
 
 /**
 	For collecting and deleting physics objects (e.g. Bullets).
 */
-class Deletion_List : public std::list<Physable*>
+class Deletion_List : public std::list<IPhysable*>
 {
 public:
 
@@ -20,7 +20,7 @@ public:
 		return Deletion_List::m_instance;
 	}
 
-	void push_back_unique(Physable*);
+	void push_back_unique(IPhysable*);
 	void delete_and_clear();
 
 private:

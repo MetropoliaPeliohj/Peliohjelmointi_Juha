@@ -8,7 +8,7 @@ Deletion_List* Deletion_List::m_instance = 0;
 /**
 	Adds an item to the list (only once).
 */
-void Deletion_List::push_back_unique(Physable *p)
+void Deletion_List::push_back_unique(IPhysable *p)
 {
 	if (std::find(begin(), end(), p) == end())
 		push_back(p);

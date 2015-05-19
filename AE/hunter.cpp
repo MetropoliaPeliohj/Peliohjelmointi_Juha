@@ -193,6 +193,7 @@ GLuint Hunter::getTextureToBind()
 	if (direction == 1){
 		return m_tex[1];
 	}
+	return 0;
 }
 
 void Hunter::setDirection(bool dir)

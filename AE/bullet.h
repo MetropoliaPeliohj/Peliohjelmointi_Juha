@@ -4,14 +4,14 @@
 #include <windows.h>
 #include <gl/GL.h>
 #include <Box2D/Box2D.h>
-#include "physable.h"
-#include "renderable.h"
+#include "IPhysable.h"
+#include "IRenderable.h"
 
 
 /**
 	Bullet, fired by hunters.
 */
-class Bullet : public Renderable, public Physable
+class Bullet : public IRenderable, public IPhysable
 {
 public:
 

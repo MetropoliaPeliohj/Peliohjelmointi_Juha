@@ -3,16 +3,22 @@
 
 #include <windows.h>
 #include <gl/GL.h>
-#include "physable.h"
-#include "renderable.h"
+#include "IPhysable.h"
+#include "IRenderable.h"
+#include "IShootable.h"
 
 
 /**
 	Player controlled duck.
 */
-class Duck : public Renderable, public Physable
+class Duck : public IRenderable, public IPhysable, public IShootable
 {
 public:
+
+	bool goLeft;
+	bool goRight;
+	bool goJump;
+	bool doShoot;
 
 	Duck(int, int);
 	virtual ~Duck();
@@ -33,6 +39,8 @@ public:
 	void jump();
 	int is_alive() const	{ return m_is_alive; }
 	void kill()				{ m_is_alive = 0; }
+	void handle_inputs();
+	void shoot();
 
 	// Camera will follow the duck.
 	void set_camera_to_duck() const;
