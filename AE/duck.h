@@ -69,7 +69,7 @@ private:
 	static bool jumping;
 	static unsigned char shoot_direction;
 	static bool moving;
-	float shootingAngle;
+	static float shootingAngle;
 
 	// For rendering. Common for all Duck instances.
 	static GLuint m_dl;

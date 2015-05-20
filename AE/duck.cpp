@@ -18,7 +18,7 @@ Duck*  Duck::m_instance			= 0;
 bool Duck::direction			= 1;
 bool Duck::jumping				= 0;
 unsigned char Duck::shoot_direction = 1;
-float shootingAngle				= 25.0f;
+float Duck::shootingAngle		= 25.0f;
 
 /**
 	(Singleton) instance access.
