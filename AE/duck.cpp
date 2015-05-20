@@ -18,6 +18,7 @@ Duck*  Duck::m_instance			= 0;
 bool Duck::direction			= 1;
 bool Duck::jumping				= 0;
 unsigned char Duck::shoot_direction = 1;
+float shootingAngle				= 25.0f;
 
 /**
 	(Singleton) instance access.
@@ -72,7 +73,7 @@ Duck::~Duck()
 
 	Returns 1 for success, 0 otherwise.
 */
-int	Duck::init()
+int	Duck::init_rendering()
 {
 	if (Duck::m_dl)
 		return 1;
@@ -185,7 +186,7 @@ void Duck::render()
 /**
 	Rendering clean-up.
 */
-void Duck::fini()
+void Duck::finish_rendering()
 {
 	glDeleteLists(Duck::m_dl, 1);
 	Duck::m_dl = 0;
@@ -222,7 +223,7 @@ void Duck::jump()
 	// if the number of contacts if more than 0, then jump!
 	 if (m_body->GetContactList() != 0)
 		m_body->ApplyForceToCenter(b2Vec2(0, DUCK_FORCE_JUMP));
-		//jumping = 1;
+		jumping = 1;
 }
 
 /**
@@ -235,12 +236,16 @@ void Duck::shoot()
 
 	float duck_x_pScale = duck_x * PHYS_SCALE;
 	float duck_y_pScale = duck_y * PHYS_SCALE;
-	//float angle = RAD2DEG(atan2(duck_y, duck_x));
-	float angle = 50;
 
 	/*if (shoot_direction == -1) duck_x_pScale -= (DUCK_WIDTH*PHYS_SCALE);
 	else duck_x_pScale += (DUCK_WIDTH * PHYS_SCALE);*/
 
+	float angle = getAngle();
+	printf("angle: %f", angle);
+	if (direction == 0){
+		angle = getAngle() + 90.0f;
+		duck_x_pScale = duck_x_pScale - 400;
+	}
 	this->try_shoot(
 		duck_x_pScale + 100,
 		duck_y_pScale,
@@ -255,6 +260,8 @@ void Duck::handle_inputs()
 	if (this->goRight) right();
 	if (this->goJump) jump();
 	if (this->doShoot) shoot();
+	if (this->raiseAngle) increaseAngle();
+	if (this->lowerAngle) decreaseAngle();
 }
 
 /**
@@ -274,11 +281,14 @@ void Duck::set_camera_to_duck() const
 	//
 	b2Vec2 pos = m_body->GetPosition(); 
 	b2Vec2 vel = m_body->GetLinearVelocity();
-	float scaling= abs(vel.x);
+	float scaling = 0.7;
+	/*
+	float scaling = abs(vel.x);
 	if (scaling < 0.5)
 		scaling = 0.5;
 	if (scaling > 0.5)
 		scaling = 0.5;
+	*/
 
 	//
 	// Center the duck.
@@ -335,6 +345,15 @@ GLuint Duck::getTextureToBind()
 			return m_tex[3];
 		}
 	}
-	return 0;
+}
+
+void Duck::increaseAngle()
+{
+	shootingAngle = shootingAngle + 5;
+}
+
+void Duck::decreaseAngle()
+{
+	shootingAngle = shootingAngle - 5;
 }
 

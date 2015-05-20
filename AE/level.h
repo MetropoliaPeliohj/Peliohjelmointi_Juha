@@ -20,8 +20,8 @@ public:
 	Level();
 	virtual ~Level();
 
-	int	init();
-	void fini();
+	int	init_rendering();
+	void finish_rendering();
 	int load(const char*);
 
 	// Renderable implementation.

@@ -11,7 +11,7 @@
 #include "IHealthable.h"
 #include "Character_list.h"
 #include "ICharacter.h"
-
+#include "ammobox.h"
 
 Contact_Listener* Contact_Listener::m_instance = 0;
 boolean Contact_Listener::contactState;
@@ -28,6 +28,26 @@ void Contact_Listener::BeginContact(b2Contact *contact)
 
 	this->checkIfBulletHitSomeone(body_a, body_b);
 
+	b2Body *body_d = Duck::get_duck()->get_body();
+	/*
+	b2Body *body_ammo1 = Ammobox::bodies.front();
+	b2Body *body_ammo2 = Ammobox::bodies.front();
+	b2Body *body_ammo3 = Ammobox::bodies.front();
+	Ammobox* box1 = Ammobox::ammoboxes.front();
+	Ammobox* box2 = Ammobox::ammoboxes.front();
+	Ammobox* box3 = Ammobox::ammoboxes.front();
+
+	// Check if the duck has collected a box.
+	if (body_ammo1 == body_d){
+		box1->kill();
+	}
+	if (body_ammo2 == body_d){
+		box2->kill();
+	}
+	if (body_ammo3 == body_d){
+		box3->kill();
+	}
+	*/
 	// Delete bullets from rendering and physics.
 	if (body_a->IsBullet())
 	{
