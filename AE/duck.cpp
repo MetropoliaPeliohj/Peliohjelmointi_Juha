@@ -8,12 +8,14 @@
 #include "world.h"
 #include "duck.h"
 #include "collision.h"
+#include "log.h"
 
 GLuint Duck::m_dl			= 0;
 GLuint Duck::m_tex[4]		= { 0, 0, 0, 0 };
 Duck*  Duck::m_instance		= 0;
-bool Duck::direction				= 1;
-bool Duck::jumping				= 0;
+bool Duck::direction		= 1;
+bool Duck::jumping			= 0;
+float shootingAngle			= 25.0f;
 
 /**
 	(Singleton) instance access.
@@ -74,8 +76,6 @@ int	Duck::init_rendering()
 	// Prepare a display list for rendering.
 	// TODO: NOW JUST A PLACEHOLDER (CIRCLE).
 	//
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	Duck::m_dl = glGenLists(1);
 	glNewList(Duck::m_dl, GL_COMPILE);
 	glBegin(GL_QUADS);
@@ -226,10 +226,11 @@ void Duck::shoot()
 	float duck_x_pScale = duck_x * PHYS_SCALE;
 	float duck_y_pScale = duck_y * PHYS_SCALE;
 
-	float angle = 25.0f;
+	float angle = getAngle();
+	printf("angle: %f", angle);
 	if (direction == 0){
-		angle = 155.0f;
-		duck_x_pScale = duck_x_pScale - 200;
+		angle = getAngle() + 90.0f;
+		duck_x_pScale = duck_x_pScale - 400;
 	}
 	this->try_shoot(
 		duck_x_pScale + 100,
@@ -246,6 +247,8 @@ void Duck::handle_inputs()
 	if (this->goRight) right();
 	if (this->goJump) jump();
 	if (this->doShoot) shoot();
+	if (this->raiseAngle) increaseAngle();
+	if (this->lowerAngle) decreaseAngle();
 }
 
 /**
@@ -329,5 +332,15 @@ GLuint Duck::getTextureToBind()
 			return m_tex[3];
 		}
 	}
+}
+
+void Duck::increaseAngle()
+{
+	shootingAngle = shootingAngle + 5;
+}
+
+void Duck::decreaseAngle()
+{
+	shootingAngle = shootingAngle - 5;
 }
 

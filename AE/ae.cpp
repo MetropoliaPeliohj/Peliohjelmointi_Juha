@@ -72,7 +72,7 @@ int main(int argc, char* argv[])
 	Ammobox box1(300, 500);
 	Ammobox box2(500, 500);
 	Ammobox box3(700, 500);
-
+	
 	// Duck.
 	Duck duck(100, 500);
 	
@@ -120,6 +120,12 @@ int main(int argc, char* argv[])
 			if (in.isKeyDown(SDLK_LCTRL)){
 				duck.doShoot = true;
 			}
+			if (in.isKeyDown(SDLK_DOWN)){
+				duck.raiseAngle = true;
+			}
+			if (in.isKeyDown(SDLK_UP)){
+				duck.lowerAngle = true;
+			}
 
 			// If button up
 			if (in.isKeyUp(SDLK_LEFT)){
@@ -133,6 +139,12 @@ int main(int argc, char* argv[])
 			}
 			if (in.isKeyUp(SDLK_LCTRL)){
 				duck.doShoot = false;
+			}
+			if (in.isKeyUp(SDLK_DOWN)){
+				duck.raiseAngle = false;
+			}
+			if (in.isKeyUp(SDLK_UP)){
+				duck.lowerAngle = false;
 			}
 			duck.handle_inputs();
 		}

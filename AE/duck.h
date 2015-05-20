@@ -19,7 +19,10 @@ public:
 	bool goRight;
 	bool goJump;
 	bool doShoot;
-
+	bool raiseAngle;
+	bool lowerAngle;
+	float shootingAngle;
+	
 	Duck(int, int);
 	virtual ~Duck();
 
@@ -41,6 +44,7 @@ public:
 	void kill()				{ m_is_alive = 0; }
 	void handle_inputs();
 	void shoot();
+	float getAngle()		{ return shootingAngle; }
 
 	// Camera will follow the duck.
 	void set_camera_to_duck() const;
@@ -50,6 +54,9 @@ public:
 
 	// Sets duck's jumping state
 	void setJumpingState();
+
+	void increaseAngle();
+	void decreaseAngle();
 
 private:
 

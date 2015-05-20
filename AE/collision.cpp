@@ -5,6 +5,7 @@
 #include "log.h"
 #include "render_list.h"
 #include "collision.h"
+#include "ammobox.h"
 
 Contact_Listener* Contact_Listener::m_instance = 0;
 boolean Contact_Listener::contactState;
@@ -20,6 +21,13 @@ void Contact_Listener::BeginContact(b2Contact *contact)
 	b2Body *body_b = contact->GetFixtureB()->GetBody();
 	b2Body *body_d = Duck::get_duck()->get_body();
 
+	b2Body *body_ammo1 = Ammobox::bodies.front();
+	b2Body *body_ammo2 = Ammobox::bodies.front();
+	b2Body *body_ammo3 = Ammobox::bodies.front();
+	Ammobox* box1 = Ammobox::ammoboxes.front();
+	Ammobox* box2 = Ammobox::ammoboxes.front();
+	Ammobox* box3 = Ammobox::ammoboxes.front();
+
 	// Check if the duck bites a bullet.
 	if (body_a->IsBullet() || body_b->IsBullet())
 	{
@@ -28,10 +36,18 @@ void Contact_Listener::BeginContact(b2Contact *contact)
 			Duck::get_duck()->kill();
 		}
 	}
-
+	/*
 	// Check if the duck has collected a box.
-
-
+	if (body_ammo1 == body_d){
+		box1->kill();
+	}
+	if (body_ammo2 == body_d){
+		box2->kill();
+	}
+	if (body_ammo3 == body_d){
+		box3->kill();
+	}
+	*/
 	// Delete bullets from rendering and physics.
 	if (body_a->IsBullet())
 	{

@@ -15,7 +15,7 @@
 #define LOG_ERROR				2
 #define DUCK_RADIUS				20
 #define PHYS_SCALE				100
-
+#define TIMESTEP				(1.0 / 60.0)
 #define GRAVITY					-30.0f
 
 #define DUCK_WIDTH				128

@@ -3,9 +3,9 @@ f:\geimifinal\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useH
           f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
 f:\geimifinal\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
           f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-f:\geimifinal\ae\duck.cpp(42): warning C4305: 'argument' : truncation from 'double' to 'float32'
+f:\geimifinal\ae\duck.cpp(44): warning C4305: 'argument' : truncation from 'double' to 'float32'
 f:\geimifinal\ae\duck.cpp(172): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-f:\geimifinal\ae\duck.cpp(240): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-f:\geimifinal\ae\duck.cpp(268): warning C4305: 'initializing' : truncation from 'double' to 'float'
-f:\geimifinal\ae\duck.cpp(332): warning C4715: 'Duck::getTextureToBind' : not all control paths return a value
+f:\geimifinal\ae\duck.cpp(241): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+f:\geimifinal\ae\duck.cpp(271): warning C4305: 'initializing' : truncation from 'double' to 'float'
+f:\geimifinal\ae\duck.cpp(335): warning C4715: 'Duck::getTextureToBind' : not all control paths return a value
   AE.vcxproj -> F:\GeimiFinal\Debug\AE.exe
