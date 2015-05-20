@@ -82,6 +82,7 @@ void Contact_Listener::checkIfBulletHitSomeone(b2Body *body_a, b2Body *body_b)
 			if (body_a == body || body_b == body)
 			{
  				(*i)->damageReceived(BULLET_DAMAGE);
+				break;
 			}
 		}
 	}
@@ -90,9 +91,16 @@ void Contact_Listener::checkIfBulletHitSomeone(b2Body *body_a, b2Body *body_b)
 	for (ammobox_list::iterator i = ammobox_list::get()->begin(); i != ammobox_list::get()->end(); i++)
 	{
 		b2Body *body = (*i)->get_body();
-		if (body_d == body)
+		if (body_a == body && body_b == body_d
+			|| body_a == body_d && body_b == body)
 		{
-			Deletion_List::get()->push_back_unique((*i));
+			ammobox_list::get()->remove((*i));
+			Render_List::get()->remove((Ammobox*)(body->GetUserData()));
+			Deletion_List::get()->push_back_unique((Ammobox*)(body->GetUserData()));
+			/*Render_List::get()->remove((*i));
+			Deletion_List::get()->push_back_unique((*i));*/
+			Log::log(LOG_INFO, "DUCK CONTACT AMMOBOX");
+			break;
 		}
 	}
 }
