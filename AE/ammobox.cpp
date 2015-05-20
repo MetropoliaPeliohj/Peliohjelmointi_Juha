@@ -33,10 +33,10 @@ Ammobox::Ammobox(int x, int y) : _x(x), _y(y)
 	fixtureDef.shape = &box;
 	m_body->CreateFixture(&fixtureDef);
 	m_body->SetUserData(this);
-
+	/*
 	Ammobox::bodies.push_back(m_body);
 	Ammobox::ammoboxes.push_back(this);
-	
+	*/
 }
 
 /**

@@ -20,14 +20,15 @@ void Contact_Listener::BeginContact(b2Contact *contact)
 	b2Body *body_a = contact->GetFixtureA()->GetBody();
 	b2Body *body_b = contact->GetFixtureB()->GetBody();
 	b2Body *body_d = Duck::get_duck()->get_body();
-
+	/*
 	b2Body *body_ammo1 = Ammobox::bodies.front();
 	b2Body *body_ammo2 = Ammobox::bodies.front();
 	b2Body *body_ammo3 = Ammobox::bodies.front();
 	Ammobox* box1 = Ammobox::ammoboxes.front();
 	Ammobox* box2 = Ammobox::ammoboxes.front();
 	Ammobox* box3 = Ammobox::ammoboxes.front();
-
+	*/
+	
 	// Check if the duck bites a bullet.
 	if (body_a->IsBullet() || body_b->IsBullet())
 	{

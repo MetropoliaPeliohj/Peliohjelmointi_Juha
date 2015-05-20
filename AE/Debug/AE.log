@@ -1,11 +1,20 @@
-﻿  duck.cpp
+﻿  collision.cpp
 f:\geimifinal\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
           f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
 f:\geimifinal\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
           f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
-f:\geimifinal\ae\duck.cpp(44): warning C4305: 'argument' : truncation from 'double' to 'float32'
-f:\geimifinal\ae\duck.cpp(172): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-f:\geimifinal\ae\duck.cpp(241): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-f:\geimifinal\ae\duck.cpp(271): warning C4305: 'initializing' : truncation from 'double' to 'float'
-f:\geimifinal\ae\duck.cpp(335): warning C4715: 'Duck::getTextureToBind' : not all control paths return a value
+  ammobox.cpp
+f:\geimifinal\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
+          f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
+f:\geimifinal\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
+          f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
+f:\geimifinal\ae\ammobox.cpp(31): warning C4305: 'argument' : truncation from 'double' to 'float32'
+f:\geimifinal\ae\ammobox.cpp(104): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+  ae.cpp
+f:\geimifinal\3rdparty\windowssdk\include\sal_supp.h(57): warning C4005: '__useHeader' : macro redefinition
+          f:\visual studio\vc\include\sal.h(2886) : see previous definition of '__useHeader'
+f:\geimifinal\3rdparty\windowssdk\include\specstrings_supp.h(77): warning C4005: '__on_failure' : macro redefinition
+          f:\visual studio\vc\include\sal.h(2896) : see previous definition of '__on_failure'
+f:\geimifinal\ae\ae.cpp(167): warning C4244: 'argument' : conversion from 'double' to 'float32', possible loss of data
+  Generating Code...
   AE.vcxproj -> F:\GeimiFinal\Debug\AE.exe
