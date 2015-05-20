@@ -17,6 +17,7 @@ GLuint Duck::m_tex[4]			= { 0, 0, 0, 0 };
 Duck*  Duck::m_instance			= 0;
 bool Duck::direction			= 1;
 bool Duck::jumping				= 0;
+unsigned char Duck::shoot_direction = 1;
 
 /**
 	(Singleton) instance access.
@@ -197,6 +198,7 @@ void Duck::fini()
 void Duck::left()
 {
 	direction = 0;
+	shoot_direction = -1;
 	m_body->ApplyForceToCenter(b2Vec2(DUCK_FORCE_LEFT, 0));
 }
 
@@ -207,6 +209,7 @@ void Duck::left()
 void Duck::right()
 {
 	direction = 1;
+	shoot_direction = 1;
 	m_body->ApplyForceToCenter(b2Vec2(DUCK_FORCE_RIGHT, 0));
 }
 
@@ -217,7 +220,7 @@ void Duck::right()
 void Duck::jump()
 {
 	// if the number of contacts if more than 0, then jump!
-	// if (m_body->GetContactList() != 0)
+	 if (m_body->GetContactList() != 0)
 		m_body->ApplyForceToCenter(b2Vec2(0, DUCK_FORCE_JUMP));
 		//jumping = 1;
 }
@@ -233,11 +236,14 @@ void Duck::shoot()
 	float duck_x_pScale = duck_x * PHYS_SCALE;
 	float duck_y_pScale = duck_y * PHYS_SCALE;
 	//float angle = RAD2DEG(atan2(duck_y, duck_x));
-	float angle = 25.0f;
+	float angle = 50;
+
+	/*if (shoot_direction == -1) duck_x_pScale -= (DUCK_WIDTH*PHYS_SCALE);
+	else duck_x_pScale += (DUCK_WIDTH * PHYS_SCALE);*/
 
 	this->try_shoot(
 		duck_x_pScale + 100,
-		duck_y_pScale + 50,
+		duck_y_pScale,
 		angle,
 		DUCK_BULLET_FORCE,
 		DUCK_SHOOTDELAYMS

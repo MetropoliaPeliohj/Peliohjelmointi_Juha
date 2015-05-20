@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
 
 	// FOR TESTING.
 	Level test_level;
-	if (test_level.load("test_level.tmx") && test_level.init())
+	if (test_level.load("test_level3.tmx") && test_level.init())
 		Log::log(LOG_INFO, "Test level loaded and initialized successfully.");
 	else
 	{
