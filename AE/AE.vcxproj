@@ -86,6 +86,7 @@
     <ClCompile Include="ae.cpp" />
     <ClCompile Include="ai_list.cpp" />
     <ClCompile Include="ammobox.cpp" />
+    <ClCompile Include="ammobox_list.cpp" />
     <ClCompile Include="bullet.cpp" />
     <ClCompile Include="Character_list.cpp" />
     <ClCompile Include="collision.cpp" />
@@ -102,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ae.h" />
+    <ClInclude Include="ammobox_list.h" />
     <ClInclude Include="Character_list.h" />
     <ClInclude Include="IAI_Character.h" />
     <ClInclude Include="ai_list.h" />

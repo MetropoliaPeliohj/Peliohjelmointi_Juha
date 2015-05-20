@@ -247,7 +247,7 @@ void Duck::shoot()
 		duck_x_pScale = duck_x_pScale - 400;
 	}
 	this->try_shoot(
-		duck_x_pScale + 100,
+		duck_x_pScale + 130,
 		duck_y_pScale,
 		angle,
 		DUCK_BULLET_FORCE,

@@ -1,154 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="..\3rdparty\tinyxml2\tinyxml2.cpp" />
+    <ClCompile Include="ae.cpp" />
+    <ClCompile Include="ai_list.cpp" />
+    <ClCompile Include="ammobox.cpp" />
+    <ClCompile Include="bullet.cpp" />
+    <ClCompile Include="Character_list.cpp" />
+    <ClCompile Include="collision.cpp" />
+    <ClCompile Include="deletion_list.cpp" />
+    <ClCompile Include="duck.cpp" />
+    <ClCompile Include="hunter.cpp" />
+    <ClCompile Include="hunter_ai.cpp" />
+    <ClCompile Include="IHealthable.cpp" />
+    <ClCompile Include="level.cpp" />
+    <ClCompile Include="log.cpp" />
+    <ClCompile Include="render_list.cpp" />
+    <ClCompile Include="Shootable.cpp" />
+    <ClCompile Include="world.cpp" />
+    <ClCompile Include="ammobox_list.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ae.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\3rdparty\tinyxml2\tinyxml2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="log.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="level.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="duck.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="world.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="render_list.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ai_list.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="hunter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bullet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="hunter_ai.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="collision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="deletion_list.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Shootable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IHealthable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Character_list.cpp">
-    <ClCompile Include="ammobox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClInclude Include="ae.h" />
+    <ClInclude Include="Character_list.h" />
+    <ClInclude Include="IAI_Character.h" />
+    <ClInclude Include="ai_list.h" />
+    <ClInclude Include="ammobox.h" />
+    <ClInclude Include="bullet.h" />
+    <ClInclude Include="collision.h" />
+    <ClInclude Include="decision_tree.h" />
+    <ClInclude Include="deletion_list.h" />
+    <ClInclude Include="duck.h" />
+    <ClInclude Include="ICharacter.h" />
+    <ClInclude Include="IHealthable.h" />
+    <ClInclude Include="input.h" />
+    <ClInclude Include="hunter.h" />
+    <ClInclude Include="hunter_ai.h" />
+    <ClInclude Include="level.h" />
+    <ClInclude Include="log.h" />
+    <ClInclude Include="IPhysable.h" />
+    <ClInclude Include="IRenderable.h" />
+    <ClInclude Include="render_list.h" />
+    <ClInclude Include="IShootable.h" />
+    <ClInclude Include="vertex.h" />
+    <ClInclude Include="world.h" />
+    <ClInclude Include="ammobox_list.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ae.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="log.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vertex.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="level.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="duck.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="world.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="render_list.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ai_list.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="hunter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="bullet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="hunter_ai.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="decision_tree.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="collision.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="deletion_list.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IRenderable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IAI_Character.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IPhysable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IShootable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IHealthable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ICharacter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Character_list.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ammobox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <Xml Include="test_level.tmx" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="atlas.png">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <Image Include="atlas.png" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="test_level.tmx">
-      <Filter>Resource Files</Filter>
-    </Xml>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="hunter_ai_tree.pptx">
-      <Filter>Resource Files</Filter>
-    </None>
+    <None Include="hunter_ai_tree.pptx" />
   </ItemGroup>
 </Project>

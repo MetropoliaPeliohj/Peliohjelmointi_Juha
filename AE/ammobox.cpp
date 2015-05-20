@@ -8,6 +8,7 @@
 #include "ae.h"
 #include "world.h"
 #include "ammobox.h"
+#include "ammobox_list.h"
 #include "collision.h"
 
 GLuint Ammobox::m_dl			= 0;
@@ -37,6 +38,8 @@ Ammobox::Ammobox(int x, int y) : _x(x), _y(y)
 	Ammobox::bodies.push_back(m_body);
 	Ammobox::ammoboxes.push_back(this);
 	*/
+
+	ammobox_list::get()->push_back_unique(this);
 }
 
 /**

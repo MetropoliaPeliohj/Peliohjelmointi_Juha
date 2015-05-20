@@ -11,8 +11,7 @@
 /**
 	Collectable ammoboxes
 */
-
-class Ammobox : public IRenderable, public IPhysable //,public std::list<b2Body*>, public std::list<Ammobox*>
+class Ammobox : public IRenderable, public IPhysable//,public std::list<b2Body*>, public std::list<Ammobox*>
 {
 
 public:
@@ -23,10 +22,10 @@ public:
 	// Renderable implementation
 	virtual void render();
 
-	/*
-	static list<b2Body*> bodies;
-	static list<Ammobox*> ammoboxes;
-	*/
+	
+	/*static list<b2Body*> bodies;
+	static list<Ammobox*> ammoboxes;*/
+	
 
 	// Common rendering initialization
 	// for all Ammo instances.

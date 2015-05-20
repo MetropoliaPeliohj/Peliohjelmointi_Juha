@@ -12,6 +12,8 @@
 #include "Character_list.h"
 #include "ICharacter.h"
 #include "ammobox.h"
+#include "ammobox_list.h"
+#include "render_list.h"
 
 Contact_Listener* Contact_Listener::m_instance = 0;
 boolean Contact_Listener::contactState;
@@ -28,7 +30,6 @@ void Contact_Listener::BeginContact(b2Contact *contact)
 
 	this->checkIfBulletHitSomeone(body_a, body_b);
 
-	b2Body *body_d = Duck::get_duck()->get_body();
 	/*
 	b2Body *body_ammo1 = Ammobox::bodies.front();
 	b2Body *body_ammo2 = Ammobox::bodies.front();
@@ -82,6 +83,16 @@ void Contact_Listener::checkIfBulletHitSomeone(b2Body *body_a, b2Body *body_b)
 			{
  				(*i)->damageReceived(BULLET_DAMAGE);
 			}
+		}
+	}
+
+	b2Body *body_d = Duck::get_duck()->get_body();
+	for (ammobox_list::iterator i = ammobox_list::get()->begin(); i != ammobox_list::get()->end(); i++)
+	{
+		b2Body *body = (*i)->get_body();
+		if (body_d == body)
+		{
+			Deletion_List::get()->push_back_unique((*i));
 		}
 	}
 }
