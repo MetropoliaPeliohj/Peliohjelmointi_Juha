@@ -112,10 +112,10 @@ void Ammobox::render()
 }
 
 /**
-Rendering clean-up.
+	Rendering clean-up.
 */
 void Ammobox::finish_rendering()
 {
-	glDeleteLists(Ammobox::m_dl, 1);
+	glDeleteLists(m_dl, 1);
 	Ammobox::m_dl = 0;
 }

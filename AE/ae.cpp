@@ -72,9 +72,9 @@ int main(int argc, char* argv[])
 	Hunter hunter3(1600, 128, 1250, 3500);
 
 	// Ammo boxes.
-	Ammobox box1(300, 500);
-	Ammobox box2(500, 500);
-	Ammobox box3(700, 500);
+	Ammobox *box1 = new Ammobox(300, 500);
+	Ammobox *box2 = new Ammobox(500, 500);
+	Ammobox *box3 = new Ammobox(700, 500);
 	
 	// Duck.
 	Duck duck(100, 500);
@@ -84,9 +84,9 @@ int main(int argc, char* argv[])
 	Render_List::get()->push_back(&hunter1);
 	Render_List::get()->push_back(&hunter2);
 	Render_List::get()->push_back(&hunter3);
-	Render_List::get()->push_back(&box1);
-	Render_List::get()->push_back(&box2);
-	Render_List::get()->push_back(&box3);
+	Render_List::get()->push_back(box1);
+	Render_List::get()->push_back(box2);
+	Render_List::get()->push_back(box3);
 	Render_List::get()->push_back(&duck);
 
 	// Add all AI controlled items to the list.
